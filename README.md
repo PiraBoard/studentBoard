@@ -1,12 +1,12 @@
-# Project Name
+# PiraBoard
 
-> Pithy project description
+A group directory and name learning app
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Mike Horan
+  - __Scrum Master__: Michael Pinter
+  - __Development Team Members__: Andrew Teich, Jameson Gamble
 
 ## Table of Contents
 
@@ -44,9 +44,9 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/PiraBoard/studentBoard/issues)
 
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTING.md](https://github.com/PiraBoard/studentBoard/blob/master/CONTRIBUTING.md) for contribution guidelines.
