@@ -1,3 +1,10 @@
+### Comments
+
+* This project uses JSDocs. Therefore, comments to be included in official documentation must conform to JSDocs syntax
+   found [here] (http://usejsdoc.org/about-getting-started.html).
+* Provide comments any time you are confident it will make reading your code easier.
+* Comment on what code is attempting to do, not how it will achieve it.
+
 ### Indentation
 
 When writing any block of code that is logically subordinate to the line immediately before and after it, that block should be indented two spaces more than the surrounding lines
@@ -170,10 +177,6 @@ When writing any block of code that is logically subordinate to the line immedia
 * Conserve line quantity by minimizing the number lines you write in. The more concisely your code is written, the more context can be seen in one screen.
 * Conserve line length by minimizing the amount of complexity you put on each line. Long lines are difficult to read. Rather than a character count limit, I recommend limiting the amount of complexity you put on a single line. Try to make it easily read in one glance. This goal is in conflict with the line quantity goal, so you must do your best to balance them.
 
-### Comments
-
-* Provide comments any time you are confident it will make reading your code easier.
-* Comment on what code is attempting to do, not how it will achieve it.
 
 ### Padding & additional whitespace
 
