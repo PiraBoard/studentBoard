@@ -1,6 +1,7 @@
 # PiraBoard
 
-A group directory and name learning app
+An open-source team learning tool
+
 
 ## Team
 
@@ -20,15 +21,11 @@ A group directory and name learning app
 
 ## Usage
 
-> Some usage instructions
+> 
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- [MEAN Stack] (http://mean.io/#!/)
 
 ## Development
 
@@ -38,8 +35,9 @@ From within the root directory:
 
 ```sh
 sudo npm install -g bower
-npm install
 bower install
+npm install
+grunt serve (must have ruby/sass/compass installed and mongod running)
 ```
 
 ### Roadmap
