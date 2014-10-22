@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-
+  email: String,
+  
   city: String,
 
   state: String,
@@ -23,7 +24,7 @@ var UserSchema = new mongoose.Schema({
   salt: String,
 
   admin: Boolean,
-  
+
   group: {
     type: String.
     require: true
