@@ -1,12 +1,9 @@
 'use strict';
 
-// angular.module('piraBoardApp', ['angularFileUpload'])
-
-// .controller('BatchCtrl', [ '$scope', function($scope) {
 angular.module('piraBoardApp')
 
-.controller('BatchCtrl', function($scope) {
-  console.log('initialized');
+.controller('BatchCtrl', [ '$scope', function($scope) {
+  console.log('initialized', $scope);
   $scope.onFileSelect = function($files) {
     console.log('selected files', $files);
 
@@ -17,10 +14,11 @@ angular.module('piraBoardApp')
         header: true,
         dynamicTyping: true,
         complete: function(results) {
+          console.log('parsed: ', results);
 
           for(var j=0; j<results.data.length; j++){
             var person = results.data[j];
-            console.log(person.first_name);
+            console.log(person);
 
             //at this point, we should either
             //1. send each person to the server to be added individually OR
@@ -30,4 +28,4 @@ angular.module('piraBoardApp')
       });
     }
   };
-});
+}]);
