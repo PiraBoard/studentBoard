@@ -18,5 +18,11 @@ angular.module('piraBoardApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('details', {
+        url:'/myAccount',
+        templateUrl: 'app/account/details/details.html',
+        controller: 'DetailsCtrl',
+        authenticate: true
       });
   });
