@@ -1,0 +1,42 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<h3>Edit Your Information</h3>
+
+  <form class="form" name="form" ng-submit="save(form)" novalidate>
+    <div class="form-group">
+      <img id="imageView" ng-src="{{imagePath}}" width="200px"/>
+      <br/>
+      <p style="float:left; margin-right:10px;">Upload New Image:</p><input type="file" id="imgInput"></input>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Name"></input>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email"></input>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="City"></input>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="State"></input>
+    </div>
+
+    <div>
+      <button class="btn btn-success btn-lg" type="submit">
+        Save
+      </button>
+      <a href="/">
+        <button class="btn btn-danger btn-lg pull-right">
+          Cancel
+        </button>
+      </a>
+      <h5 ng-show="savedSuccessfully">Information Updated Successfully</h5>
+    </div>
+  </form>
+
+</div>
