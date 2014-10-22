@@ -11,8 +11,10 @@
           <i class="fa fa-users fa-5x"></i>
         </p>
       </div>
-      <div class="col-md-8 greeting"> Hi, {{ getCurrentUser().name }} </div>
-      <div class="col-md-8"> 
+      <div class="col-md-3"> 
+        <p class="greeting">
+          Hi, {{ getCurrentUser().name }} 
+        </p>
         <p>
           You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
         </p>
@@ -31,27 +33,37 @@
         </button>
         <div class="group-input">
           <form role="form">
-          <div class="form-group">
-            <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="joinGroupInput" ng-submit="" />
-            <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="createGroupInput" ng-submit="" />
-          </div>
-        </form>
+            <div class="form-group">
+              <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="joinGroupInput" ng-submit="" />
+              <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="createGroupInput" ng-submit="" />
+            </div>
+          </form>
         </div>
       </div>
+
+      <div id="info-box" class="col-md-6">
+        <div id="dash-location">
+          My Groups
+        </div>
+        <div id="live-update">
+          Group added!
+        </div>
+      </div>
+
     </div>
   </header>
 
-<div class="sidebar row">
-  <div class="col-md-1 menu">
-    <div>
-      Edit Profile
+  <div class="sidebar row">
+    <div class="col-md-1 menu">
+      <div>
+        Edit Profile
+      </div>
+      <div>
+        My Groups
+      </div>
     </div>
-    <div>
-      My Groups
-    </div>
+    <div class="col-md-11"></div>
   </div>
-  <div class="col-md-11"></div>
-</div>
 
   <footer class="footer">
     <div class="container">

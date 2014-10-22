@@ -1,22 +1,26 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="container">
-	<h3>Batch Import Users from CSV</h3>
-	<div ng-controller="BatchCtrl">
+<div id="batch-upload" class="container">
+  <h3>
+    Batch Import Users from CSV
+  </h3>
+  <div ng-controller="BatchCtrl">
     <input type="file" ng-file-select="onFileSelect($files)">
   </div>
-
-	<h3>Individually Edit Users</h3>
-  <button ng-click="emailAllNew()" class="pull-right btn btn-default" style="margin-top:-1.5%; margin-right:1%">
+  <h3>
+    Individually Edit Users
+  </h3>
+  <button ng-click="emailAllNew()" class="pull-right btn btn-default">
     Send Invite Email to All New Users
   </button>
-  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
+  <p>
+    The delete user and user index api routes are restricted to users with the 'admin' role.
+  </p>
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="user in users">
-        <strong>{{user.name}}</strong><br>
-        <span class="text-muted">{{user.email}}</span>
-        <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
-        <button ng-click="email(user)" class="pull-right btn btn-default" style="margin-top:-1.5%; margin-right:1%">Send Invite Email</button>
+      <strong>{{user.name}}</strong><br>
+      <span class="text-muted">{{user.email}}</span>
+      <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+      <button ng-click="email(user)" class="pull-right btn btn-default">Send Invite Email</button>
     </li>
   </ul>
 </div>

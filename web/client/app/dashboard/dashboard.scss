@@ -15,7 +15,7 @@
   margin-top: 70px;
   border-top: 1px solid #E5E5E5;
 }
-#dashboard .col-md-8 {
+#dashboard .col-md-3 {
   text-align: left;
 }
 #dashboard .greeting {
@@ -31,8 +31,8 @@
   text-align: center;
 }
 #dashboard .sidebar {
-  border-top: #4393B9 6px solid;
-  border-bottom: #4393B9 6px solid;
+  border-top: #4393B9 1px solid;
+  border-bottom: #4393B9 1px solid;
 }
 #dashboard .create-group-input {
   
@@ -46,4 +46,11 @@
 }
 #dashboard .form-group {
   margin-bottom: 0;
+}
+
+#dashboard #dash-location {
+  font-size: 3em;
+}
+#dashboard #live-update {
+
 }

@@ -1,13 +1,14 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-	<h3>Edit Your Information</h3>
+  <h3>
+    Edit Your Information
+  </h3>
 
   <form class="form" name="form" ng-submit="save(form)" novalidate>
     <div class="form-group">
       <img id="imageView" ng-src="{{imagePath}}" width="200px"/>
-      <br/>
-      <p style="float:left; margin-right:10px;">Upload New Image:</p><input type="file" id="imgInput"></input>
+      <p style="float:left; margin-right:10px;">Upload New Image:</p>
+      <input type="file" id="imgInput"></input>
     </div>
 
     <div class="form-group">
@@ -35,8 +36,9 @@
           Cancel
         </button>
       </a>
-      <h5 ng-show="savedSuccessfully">Information Updated Successfully</h5>
+      <h5 ng-show="savedSuccessfully">
+        Information Updated Successfully
+      </h5>
     </div>
   </form>
-
 </div>
