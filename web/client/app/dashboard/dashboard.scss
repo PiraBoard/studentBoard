@@ -35,14 +35,18 @@
   border-bottom: #4393B9 1px solid;
   
 }
+#dashboard #sidebar ul{
+  list-style: none;  
+  padding: 0;
+}
 #dashboard #sidebar a {
   text-decoration: none;
   color: #F5F5F5;
 }
-#dashboard #sidebar .link:first-child {
+#dashboard #sidebar li:first-child {
   margin-top:5px;
 }
-#dashboard #sidebar .link {
+#dashboard #sidebar li {
   margin-bottom:5px;
 }
 

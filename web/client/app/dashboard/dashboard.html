@@ -55,14 +55,14 @@
 
   <div id="sidebar" class="row">
     <div class="col-md-1 menu">
-      <div class="link">
-        <a href="dashboard/profile">Edit Profile</a>
-      </div>
-      <div class="link">
-        My Groups
-      </div>
+      <ul>
+        <li class="link"><a ui-sref="dashboardProfile">Edit Profile</a></li>
+        <li class="link"><a ui-sref="dashboardGroups">My Groups</a></li>
+      </ul>
     </div>
-    <div class="col-md-11"></div>
+    <div class="col-md-11">
+      <div ui-view></div>
+    </div>
   </div>
 
   <footer class="footer">
