@@ -1,12 +1,7 @@
-<script src="../../../bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script> 
-<script src="../../../bower_components/angular/angular.min.js"></script>
-<script src="../../../bower_components/ng-file-upload-shim/angular-file-upload.min.js"></script> 
-<script src="../../../bower_components/papa.parse/papaparse.min.js"></script> 
-<script src="batch.controller.js"></script>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
-<!-- <div ng-include="components/navbar/navbar.html"></div> -->
-  <div ng-app="batchApp">
-  <div ng-controller="batchController">
+<div>
+  <div ng-controller="BatchCtrl">
     <input type="file" ng-file-select="onFileSelect($files)">
   </div>
 </div>

@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('batchApp', ['angularFileUpload'])
+// angular.module('piraBoardApp', ['angularFileUpload'])
 
-.controller('batchController', [ '$scope', function($scope) {
+// .controller('BatchCtrl', [ '$scope', function($scope) {
+angular.module('piraBoardApp')
+
+.controller('BatchCtrl', function($scope) {
   console.log('initialized');
   $scope.onFileSelect = function($files) {
     console.log('selected files', $files);
@@ -27,4 +30,4 @@ angular.module('batchApp', ['angularFileUpload'])
       });
     }
   };
-}]);
+});
