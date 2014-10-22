@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  
+
   email: {
     String,
     required:true
@@ -37,7 +37,7 @@ var UserSchema = new mongoose.Schema({
 
   group: {
     type: String,
-    require: true
+    required: true
   }
 });
 
