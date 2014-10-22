@@ -4,7 +4,7 @@ angular.module('piraBoardApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('batch', {
-        url: '/',
+        url: '/batch',
         templateUrl: 'app/batchUpload/batch.html',
         controller: 'BatchCtrl'
       });
