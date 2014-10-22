@@ -5,7 +5,6 @@ angular.module('piraBoardApp')
     $scope.errors = {};
     $scope.savedSuccessfully = false;
     $scope.imagePath = 'images/forever_alone.jpg';
-    $scope. active = true;
     $("#imgInput").change(function(){
         readURL(this);
     });
