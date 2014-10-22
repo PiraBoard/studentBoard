@@ -1,6 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
+	<h3>Batch Import Users from CSV</h3>
+	<div ng-controller="BatchCtrl">
+    <input type="file" ng-file-select="onFileSelect($files)">
+  </div>
+
+	<h3>Individually Add/Remove Users</h3>
   <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="user in users">
