@@ -18,12 +18,12 @@
         <p>
           You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
         </p>
-        <button type="button" class="btn btn-default btn-sm"  ng-click="joinGroupInput = !joinGroupInput; createGroupInput = false">
+        <button type="button" class="btn btn-default btn-sm"  ng-click="groupInput = true">
           <div tooltip="Join an existing group">
             <span class="fa fa-sign-in"></span> Join
           </div>
         </button>
-        <button type="button" class="btn btn-default btn-sm" ng-click="createGroupInput = !createGroupInput; joinGroupInput = false;">
+        <button type="button" class="btn btn-default btn-sm" ng-click="groupInput = false">
           <div tooltip="Invite people to a new group">
             <span class="fa fa-magic" ></span> Create
           </div>
@@ -34,8 +34,8 @@
         <div class="group-input">
           <form role="form">
             <div class="form-group">
-              <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="joinGroupInput" ng-submit="" />
-              <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="createGroupInput" ng-submit="" />
+              <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="groupInput" ng-submit="" />
+              <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="!groupInput" ng-submit="" />
             </div>
           </form>
         </div>
@@ -56,8 +56,8 @@
   <div id="sidebar" class="row">
     <div class="col-md-1 menu">
       <ul>
-        <li class="link"><a ui-sref="dashboardProfile">Edit Profile</a></li>
-        <li class="link"><a ui-sref="dashboardGroups">My Groups</a></li>
+        <li class="link"><a ui-sref="groups">Groups</a></li>
+        <li class="link"><a ui-sref="settings">Settings</a></li>
       </ul>
     </div>
     <div class="col-md-11">
