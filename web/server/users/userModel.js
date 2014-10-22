@@ -10,11 +10,21 @@ var UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  email: String,
   
-  city: String,
+  email: {
+    String,
+    required:true
+  },
+  
+  city: {
+    String,
+    required:true
+  },
 
-  state: String,
+  state: {
+    String,
+    required:true
+  },
 
   password: {
     type: String,
@@ -26,7 +36,7 @@ var UserSchema = new mongoose.Schema({
   admin: Boolean,
 
   group: {
-    type: String.
+    type: String,
     require: true
   }
 });
