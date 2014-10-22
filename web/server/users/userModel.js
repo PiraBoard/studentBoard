@@ -11,12 +11,19 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
+  city: String,
+
+  state: String,
+
   password: {
     type: String,
     required: true
   },
+
   salt: String,
+
   admin: Boolean,
+  
   group: {
     type: String.
     require: true
