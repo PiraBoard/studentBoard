@@ -1,7 +1,7 @@
-<div ng-include="components/navbar/navbar.html"></div>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
-<div ng-app="batchApp">
-  <div ng-controller="batchController">
+<div>
+  <div ng-controller="BatchCtrl">
     <input type="file" ng-file-select="onFileSelect($files)">
   </div>
 </div>
