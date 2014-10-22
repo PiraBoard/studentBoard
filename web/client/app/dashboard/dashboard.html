@@ -16,15 +16,27 @@
         <p>
           You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
         </p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="fa fa-sign-in"></span> Join
+        <button type="button" class="btn btn-default btn-sm"  ng-click="joinGroupInput = !joinGroupInput; createGroupInput = false">
+          <div tooltip="Join an existing group">
+            <span class="fa fa-sign-in"></span> Join
+          </div>
         </button>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="fa fa-magic"></span> Create
+        <button type="button" class="btn btn-default btn-sm" ng-click="createGroupInput = !createGroupInput; joinGroupInput = false;">
+          <div tooltip="Invite people to a new group">
+            <span class="fa fa-magic" ></span> Create
+          </div>
         </button>
         <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
+        <div class="group-input">
+          <form role="form">
+          <div class="form-group">
+            <input type='input' id="join-group-input" class="form-control" placeholder="Name of group" ng-show="joinGroupInput" ng-submit="" />
+            <input type='input' id="create-group-input" class="form-control" placeholder="Email of person to invite" ng-show="createGroupInput" ng-submit="" />
+          </div>
+        </form>
+        </div>
       </div>
     </div>
   </header>
@@ -32,10 +44,10 @@
 <div class="sidebar row">
   <div class="col-md-1 menu">
     <div>
-      Profile
+      Edit Profile
     </div>
     <div>
-      Groups
+      My Groups
     </div>
   </div>
   <div class="col-md-11"></div>

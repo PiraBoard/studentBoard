@@ -6,8 +6,10 @@ angular.module('piraBoardApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.numGroups = 0;
     $scope.numLead = 0;
+    $scope.createGroupInput = false;
+    $scope.joinGroupInput = false;
 
-
+    if($scope.createGroupInput === true) {$scope.joinGroupInput = false;}
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
