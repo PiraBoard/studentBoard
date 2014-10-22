@@ -30,10 +30,22 @@
   background: #4393B9;
   text-align: center;
 }
-#dashboard .sidebar {
+#dashboard #sidebar {
   border-top: #4393B9 1px solid;
   border-bottom: #4393B9 1px solid;
+  
 }
+#dashboard #sidebar a {
+  text-decoration: none;
+  color: #F5F5F5;
+}
+#dashboard #sidebar .link:first-child {
+  margin-top:5px;
+}
+#dashboard #sidebar .link {
+  margin-bottom:5px;
+}
+
 #dashboard .create-group-input {
   
 }
@@ -42,10 +54,10 @@
 }
 #dashboard .form-control {
   margin: 5px 0;
-  width: 31%;
 }
 #dashboard .form-group {
   margin-bottom: 0;
+  width: 88%;  
 }
 
 #dashboard #dash-location {

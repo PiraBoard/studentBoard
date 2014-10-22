@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DetailsCtrl', function ($scope, Auth, $location, $window, $timeout) {
+  .controller('UserProfileCtrl', function ($scope, Auth, $location, $window, $timeout) {
     $scope.errors = {};
     $scope.savedSuccessfully = false;
     $scope.imagePath = 'images/forever_alone.jpg';
