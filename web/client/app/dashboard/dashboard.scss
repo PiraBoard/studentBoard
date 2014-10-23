@@ -30,31 +30,6 @@
   background: #4393B9;
   text-align: center;
 }
-#dashboard #sidebar {
-  border-top: #4393B9 1px solid;
-  border-bottom: #4393B9 1px solid;
-  
-}
-#dashboard #sidebar ul{
-  list-style: none;  
-  padding: 0;
-}
-#dashboard #sidebar li:first-child {
-  margin-top:5px;
-}
-#dashboard #sidebar li {
-  margin-bottom:5px;
-}
-#dashboard #sidebar a {
-  color: #F5F5F5;
-}
-
-#dashboard .create-group-input {
-  
-}
-#dashboard .join-group-input {
-  
-}
 #dashboard .form-control {
   margin: 5px 0;
 }
@@ -68,4 +43,34 @@
 }
 #dashboard #live-update {
 
+}
+
+#dashboard #panel {
+  border-top: #4393B9 1px solid;
+  border-bottom: #4393B9 1px solid;
+}
+
+#dashboard #panel #sidebar {
+  text-align: left;
+  padding: 0 0 0 20px;
+}
+#dashboard #panel #sidebar ul{
+  list-style: none;  
+  margin: 10px 0;
+}
+
+#dashboard #panel #sidebar li:first-child {
+  margin-top:5px;
+}
+
+#dashboard #panel #sidebar li {
+  margin-bottom:5px;
+}
+
+#dashboard #panel #sidebar a {
+  color: #F5F5F5;
+}
+
+#dashboard #panel #sidebar ul > ul{
+  padding-left: 10px;
 }

@@ -4,8 +4,9 @@ angular.module('piraBoardApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('admin', {
+        parent: 'groups',
         url: '/admin',
-        templateUrl: 'app/admin/admin.html',
-        controller: 'AdminCtrl'
+        templateUrl: 'app/dashboard/partials/group-admin/group-admin.html',
+        controller: 'GroupAdminCtrl'
       });
   });
