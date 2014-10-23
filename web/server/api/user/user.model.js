@@ -6,8 +6,13 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
+  username: { type: String, required: true, unique: true },
   name: String,
-  email: { type: String, lowercase: true },
+  email: { type: String, lowercase: true, required: true },
+  city: { type: String, required: true},
+  state: {type: String, required: true},
+  admin: Boolean,
+  group: {type: String, required: true},
   role: {
     type: String,
     default: 'user'
