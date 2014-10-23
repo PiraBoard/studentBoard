@@ -11,6 +11,11 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
+  name: {
+    type: String,
+    required: true
+  },
+
   email: {
     String,
     required:true
@@ -40,6 +45,7 @@ var UserSchema = new mongoose.Schema({
     required: true
   }
 });
+
 
 // UserSchema.methods.comparePasswords = function (candidatePassword) {
 //   var defer = Q.defer();
