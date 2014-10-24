@@ -7,7 +7,7 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
   name: String,
-  email: { type: String, lowercase: true },
+  email: { type: String, lowercase: true},
   role: {
     type: String,
     default: 'user'
@@ -18,7 +18,12 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+  //ADDING ADDITIONAL PROPERTIES:
+  city: { type: String, default: "San Francisco"},
+  state: { type: String, default: "CA"},
+  admin: { type: Boolean, default: false},
+  group: {type: String, default: "default"}
 });
 
 /**
