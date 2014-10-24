@@ -3,11 +3,11 @@
 angular.module('piraBoardApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('groupView', {
+      .state('group', {
         parent:'groups',
-        url: '/group',
-        templateUrl: 'app/dashboard/partials/groups/group-view/group-view.html',
-        controller: 'GroupViewCtrl',
+        url: '/:name',
+        templateUrl: 'app/dashboard/partials/groups/group/group.html',
+        controller: 'GroupCtrl',
         authenticate: true
       })
   });

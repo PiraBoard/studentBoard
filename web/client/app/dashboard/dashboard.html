@@ -52,7 +52,7 @@
 
     </div>
   </header>
-
+{{groupName}}
   <div id="panel">    
     <div class="row">
       <div id="sidebar" class="col-md-2 menu">
@@ -60,11 +60,10 @@
           <li class="link"><a>Groups</a></li>
           <ul>
             <li ng-repeat="group in groups">
-              <a ng-show="true" ui-sref="groups">
-                <span class="fa fa-angle-right"></span> <span>{{group.name}}</span>
-              </a>
-              <a ng-show="false" ui-sref="groups">
-                <span class="fa fa-chevron-right"></span> <span>{{group.name}}</span>
+              <a ng-href="/dashboard/groups/{{group.groupName}}" ng-click="getGroup($index)">
+                <span class="fa fa-chevron-right" ng-show="false"></span>
+                <span class="fa fa-angle-right" ng-show="true"></span> 
+                {{group.groupName}}
               </a>
             </li>
           </ul>

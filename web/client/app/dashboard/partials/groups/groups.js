@@ -5,6 +5,7 @@ angular.module('piraBoardApp')
     $stateProvider
       .state('groups', {
         parent:'dashboard',
+        abstract: true,
         url: '/groups',
         templateUrl: 'app/dashboard/partials/groups/groups.html',
         controller: 'GroupsCtrl',

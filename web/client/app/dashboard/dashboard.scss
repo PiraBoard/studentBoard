@@ -56,7 +56,7 @@
 }
 #dashboard #panel #sidebar ul{
   list-style: none;  
-  margin: 10px 0;
+  padding-left: 20px;
 }
 
 #dashboard #panel #sidebar li:first-child {
@@ -64,6 +64,10 @@
 }
 
 #dashboard #panel #sidebar li {
+  margin-bottom:2px;
+}
+
+#dashboard #panel #sidebar li:last-child {
   margin-bottom:5px;
 }
 

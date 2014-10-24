@@ -2,15 +2,27 @@
 
 angular.module('piraBoardApp')
   .controller('DashboardCtrl', function ($scope, $http, Auth) {
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.groupInput = true;
     $scope.numGroups = 0;
     $scope.numLead = 0;
     $scope.groups = [
-    {name:'CSI110'}, 
-    {name:'Omnicron'}, 
-    {name:'Micronub'}
+      {
+        groupName:'Omnicron', 
+        members: [{name:'Jim', role: 'user'}, {name: 'John', role: 'admin'}]
+      },       
+      {
+        groupName:'CSI110', 
+        members: [{name:'Tony', role: 'user'}, {name:'Tony', role: 'user'}, {name: 'John', role: 'admin'}]
+      }, 
+      {
+        groupName:'Micronub',
+        members: [{name:'Alex', role: 'user'}, {name:'Tony', role: 'user'}, {name: 'Jose', role: 'admin'}]
+
+      }
     ];
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    // Join/Create button switch 
+    $scope.groupInput = true;
+    $scope.currentGroup = {};
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
     });
@@ -26,4 +38,9 @@ angular.module('piraBoardApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
+
+    $scope.getGroup = function(index) {
+      return $scope.currentGroup = $scope.groups[index];
+    };
+
   });
