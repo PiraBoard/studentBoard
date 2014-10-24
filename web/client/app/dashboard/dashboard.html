@@ -11,35 +11,64 @@
           <i class="fa fa-users fa-5x"></i>
         </p>
       </div>
-      <div class="col-md-8 greeting"> Hi, {{ getCurrentUser().name }} </div>
-      <div class="col-md-8"> 
+      <div class="col-md-3"> 
+        <p class="greeting">
+          Hi, {{ getCurrentUser().name }} 
+        </p>
         <p>
           You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
         </p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="fa fa-sign-in"></span> Join
+        <button type="button" class="btn btn-default btn-sm"  ng-click="groupInput = true">
+          <div tooltip="Join an existing group">
+            <span class="fa fa-sign-in"></span> Join
+          </div>
         </button>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="fa fa-magic"></span> Create
+        <button type="button" class="btn btn-default btn-sm" ng-click="groupInput = false">
+          <div tooltip="Invite people to a new group">
+            <span class="fa fa-magic" ></span> Create
+          </div>
         </button>
         <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
+        <div class="group-input">
+          <form role="form">
+            <div class="form-group">
+              <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="groupInput" ng-submit="" />
+              <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="!groupInput" ng-submit="" />
+            </div>
+          </form>
+        </div>
       </div>
+
+      <div id="info-box" class="col-md-6">
+        <div id="dash-location">
+          My Groups
+        </div>
+        <div id="live-update">
+          Group added.
+        </div>
+      </div>
+
     </div>
   </header>
 
-<div class="sidebar row">
-  <div class="col-md-1 menu">
-    <div>
-      Profile
+  <div id="sidebar" class="row">
+    <div class="col-md-1 menu">
+      <ul>
+        <li class="link"><a ui-sref="groups">Groups</a></li>
+        <ul>
+          <li ng-repeat="group in groups">
+            
+          </li>
+        </ul>
+        <li class="link"><a ui-sref="settings">Settings</a></li>
+      </ul>
     </div>
-    <div>
-      Groups
+    <div class="col-md-11">
+      <div ui-view></div>
     </div>
   </div>
-  <div class="col-md-11"></div>
-</div>
 
   <footer class="footer">
     <div class="container">

@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DetailsCtrl', function ($scope, Auth, $location, $window, $timeout) {
+  .controller('SettingsCtrl', function ($scope, Auth, $location, $window, $timeout) {
     $scope.errors = {};
     $scope.savedSuccessfully = false;
     $scope.imagePath = 'images/forever_alone.jpg';
-
     $("#imgInput").change(function(){
         readURL(this);
     });

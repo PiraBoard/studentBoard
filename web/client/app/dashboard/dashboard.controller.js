@@ -4,10 +4,7 @@ angular.module('piraBoardApp')
   .controller('DashboardCtrl', function ($scope, $http, Auth) {
     $scope.awesomeThings = [];
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.numGroups = 0;
-    $scope.numLead = 0;
-
-
+    $scope.groupInput = true;
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
