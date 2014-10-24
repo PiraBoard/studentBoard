@@ -78,7 +78,7 @@ exports.sendInvite = function (req, res, next) {
         subject: 'Hello', // Subject line
         //text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
         //html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
-        text: 'Username: ' + ,
+        text: 'Username: ' + '',
         html: ''
     };
 
