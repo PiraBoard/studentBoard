@@ -99,10 +99,15 @@ exports.sendInvite = function (req, res, next) {
   */
 exports.loginWithInvitation = function (req, res, next) {
   var authString = req.params.authString;
+  console.log('login with invitation id: ', authString);
 
   //get users id from parameters
   var userId = _parseAuthString(authString);
 
+  console.log('parsed id: ', userId);
+
+  res.json('kill for testing, fix later');
+  /*
   User.findById(userId, function (err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
@@ -111,6 +116,7 @@ exports.loginWithInvitation = function (req, res, next) {
     //Send to some create a user page in Angular
     res.json(user.profile);
   });
+*/
 };
 
 /**

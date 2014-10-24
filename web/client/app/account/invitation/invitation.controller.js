@@ -1,9 +1,17 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('InvitationCtrl', function ($scope, Auth, $location, $window) {
+  .controller('InvitationCtrl', function ($http, $scope, Auth, $location, $window, $stateParams) {
     $scope.user = {};
     $scope.errors = {};
+
+    var userId = $stateParams.id;
+    console.log('id: ', userId);
+
+    $http.get('/api/users/loginWithInvitation/' + userId).success(function(awesomeThings) {
+      $scope.awesomeThings = awesomeThings;
+      console.log('invitation returned: ', awesomeThings);
+    });
 
     $scope.register = function(form) {
       $scope.submitted = true;
