@@ -14,4 +14,7 @@ router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 
+router.put('/:id/invite', auth.hasRole('admin'), controller.sendInvite);
+router.get('/loginWithInvitation/:authString', controller.loginWithInvitation);
+
 module.exports = router;
