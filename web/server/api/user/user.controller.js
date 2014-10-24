@@ -76,10 +76,10 @@ exports.sendInvite = function (req, res, next) {
         from: 'Master Pira <noreply@piraboard.com>',
         to: 'andrewjteich@gmail.com, andrewteich@me.com', // list of receivers - *** change to user.email ***
         subject: 'Hello', // Subject line
-        //text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
-        //html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
-        text: 'Username: ' + '',
-        html: ''
+        text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
+        html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
+        // text: 'Username: ' + '',
+        // html: ''
     };
 
     // send mail with defined transport object
