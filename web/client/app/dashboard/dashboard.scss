@@ -30,31 +30,6 @@
   background: #4393B9;
   text-align: center;
 }
-#dashboard #sidebar {
-  border-top: #4393B9 1px solid;
-  border-bottom: #4393B9 1px solid;
-  
-}
-#dashboard #sidebar ul{
-  list-style: none;  
-  padding: 0;
-}
-#dashboard #sidebar li:first-child {
-  margin-top:5px;
-}
-#dashboard #sidebar li {
-  margin-bottom:5px;
-}
-#dashboard #sidebar a {
-  color: #F5F5F5;
-}
-
-#dashboard .create-group-input {
-  
-}
-#dashboard .join-group-input {
-  
-}
 #dashboard .form-control {
   margin: 5px 0;
 }
@@ -68,4 +43,61 @@
 }
 #dashboard #live-update {
 
+}
+
+#dashboard #panel {
+  border-top: #4393B9 1px solid;
+  border-bottom: #4393B9 1px solid;
+}
+
+#dashboard #panel #sidebar {
+  text-align: left;
+  padding: 0 0 0 20px;
+}
+#dashboard #panel #sidebar .groups {
+  font-weight: bold;
+}
+
+#dashboard #panel #sidebar ul{
+  list-style: none;  
+  padding-left: 0px;
+}
+
+#dashboard #panel #sidebar li:first-child {
+  margin-top:5px;
+}
+
+#dashboard #panel #sidebar li {
+  margin-bottom:2px;
+}
+
+#dashboard #panel #sidebar li:last-child {
+  margin-bottom:5px;
+}
+
+#dashboard #panel #sidebar a {
+  color: #F5F5F5;
+}
+
+#dashboard #panel #sidebar ul > ul{
+  padding-left: 10px;
+}
+
+#dashboard #panel #sidebar .active a {
+  padding-left: 10px;
+}
+
+#dashboard #panel > .row, #panel > .row > div[class*="col-"] {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+#dashboard #panel #sidebar .add-group:hover {
+  cursor: pointer;
+}
+
+#dashboard .fa-tachometer {
+  color: #e7e7e7;
+  font-size: 10em;
+  margin-left: 40px;
 }

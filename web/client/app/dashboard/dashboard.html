@@ -18,27 +18,9 @@
         <p>
           You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
         </p>
-        <button type="button" class="btn btn-default btn-sm"  ng-click="groupInput = true">
-          <div tooltip="Join an existing group">
-            <span class="fa fa-sign-in"></span> Join
-          </div>
-        </button>
-        <button type="button" class="btn btn-default btn-sm" ng-click="groupInput = false">
-          <div tooltip="Invite people to a new group">
-            <span class="fa fa-magic" ></span> Create
-          </div>
-        </button>
         <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
-        <div class="group-input">
-          <form role="form">
-            <div class="form-group">
-              <input type='input' id="join-group-input" class="form-control" placeholder="Name of group to join" ng-show="groupInput" ng-submit="" />
-              <input type='input' id="create-group-input" class="form-control" placeholder="Name of group to create" ng-show="!groupInput" ng-submit="" />
-            </div>
-          </form>
-        </div>
       </div>
 
       <div id="info-box" class="col-md-6">
@@ -52,21 +34,37 @@
 
     </div>
   </header>
-
-  <div id="sidebar" class="row">
-    <div class="col-md-1 menu">
-      <ul>
-        <li class="link"><a ui-sref="groups">Groups</a></li>
+  <div id="panel">    
+    <div class="row">
+      <div id="sidebar" class="col-md-2 menu">
         <ul>
-          <li ng-repeat="group in groups">
-            
+          <li class="groups">Groups 
+            <span class="fa fa-plus add-group" ng-click="addGroupToggle = !addGroupToggle"></span>
           </li>
+          <ul>
+            <li ng-repeat="group in groups" ng-class="{'active': isCurrentGroup(group.groupName)}">
+              <a ng-href="/dashboard/groups/{{group.groupName}}" ng-click="getGroup($index)">
+                <span class="fa fa-chevron-right" ng-show="false"></span>
+                <span class="fa fa-angle-right" ng-show="true"></span> 
+                {{group.groupName}}
+              </a>
+            </li>
+          </ul>
         </ul>
-        <li class="link"><a ui-sref="settings">Settings</a></li>
-      </ul>
-    </div>
-    <div class="col-md-11">
-      <div ui-view></div>
+
+
+  <form role="form" ng-show="addGroupToggle" ng-submit="createGroup(groupName)">
+    <input type='input' id="add-group-input" class="form-control" placeholder="Name of group to join" ng-model="groupName" />
+  </form>
+
+      </div>
+
+      <div class="col-md-10">
+        <div ui-view>
+          <i class="fa fa-tachometer fa-5x"></i>
+        </div>
+      </div>
+
     </div>
   </div>
 
