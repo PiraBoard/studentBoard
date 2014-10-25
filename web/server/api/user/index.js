@@ -16,5 +16,6 @@ router.post('/', controller.create);
 
 router.put('/:id/invite', auth.hasRole('admin'), controller.sendInvite);
 router.get('/loginWithInvitation/:authString', controller.loginWithInvitation);
+router.post('/createManyUsers', controller.createManyUsers);
 
 module.exports = router;

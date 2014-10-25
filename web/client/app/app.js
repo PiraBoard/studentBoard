@@ -35,10 +35,10 @@ angular.module('piraBoardApp', [
 
           // console.log(response.config.url.substring(0, 22));
           if(response.config.url.substring(0, 22) !== "/api/users/invitation/"){
-            // $location.path('/login');
-            // // remove any stale tokens
-            // $cookieStore.remove('token');
-            // return $q.reject(response);
+            $location.path('/login');
+            // remove any stale tokens
+            $cookieStore.remove('token');
+            return $q.reject(response);
           }
         }
         else {

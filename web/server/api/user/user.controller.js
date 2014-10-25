@@ -34,14 +34,41 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
-  var newUser = new User(req.body);
-  newUser.provider = 'local';
-  newUser.role = 'user';
-  newUser.save(function(err, user) {
+  createUser(req.body, function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
     res.json({ token: token });
   });
+};
+
+//Modularity, FTW
+var createUser = function(userData, callback){
+  var newUser = new User(userData);
+  newUser.provider = 'local';
+  newUser.role = 'user';
+
+  newUser.save(function(err, user){
+    callback(err, user);
+  });
+};
+
+/**
+  * Create a batch of users
+  */
+exports.createManyUsers = function(req, res, next){
+  var newUsers = req.body.users;
+
+  for(var i=0; i<newUsers.length; i++){
+    var newUser = JSON.parse(newUsers[i]);
+    // console.log(newUser);
+    createUser(newUser, function(err, user) {
+      if (err){
+        console.log('error adding users: ', err);
+      }
+    });
+  }
+
+  res.json({'Added new users': true});
 };
 
 /**
@@ -106,9 +133,14 @@ exports.loginWithInvitation = function (req, res, next) {
 
   console.log('parsed id: ', userId);
 
-  res.json('kill for testing, fix later');
-  /*
-  User.findById(userId, function (err, user) {
+  // res.json('kill for testing, fix later');
+
+  //User.findById(userId, function (err, user) {
+    User.find({}, function (err, user){
+    console.log('Error: ', err, ' User: ', user);
+    
+    //*** not finding a user... ***
+
     if (err) return next(err);
     if (!user) return res.send(401);
 
@@ -116,7 +148,6 @@ exports.loginWithInvitation = function (req, res, next) {
     //Send to some create a user page in Angular
     res.json(user.profile);
   });
-*/
 };
 
 /**
