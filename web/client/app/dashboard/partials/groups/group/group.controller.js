@@ -1,11 +1,18 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('GroupCtrl', function ($scope, $http, $stateParams, Auth, User) {
-    
+  .controller('GroupCtrl', function ($scope, $filter, $http, $stateParams, Auth, User) {
     $scope.groupName = $scope.groups[$stateParams.name];
     $scope.isAdmin = Auth.isAdmin;
     $scope.users = User.query();
+    // sortBy controls
+      // $scope.reverse = true;
+      // var orderBy = $filter('orderBy');
+      // $scope.order = function(predicate, reverse) {
+      //   console.log($scope.currentGroup.members, predicate, reverse);
+      //   $scope.currentGroup = orderBy($scope.currentGroup.members, predicate, reverse);
+      // };
+      // // $scope.order('-name',false);
 
     $scope.delete = function(user) {
       if ( confirm('Really remove ' + user.name + '?')) {
@@ -18,16 +25,17 @@ angular.module('piraBoardApp')
       }
     };
 
-    // $scope.onFileSelect = function () {
-    //   alert('clicked!');
-    //   //put batch file upload logic here
-    // };
     $scope.inviteEmail = function (email) {
       // send email invite to email
       var invited = angular.element('<tr><td></td><td>' + email +'</td><td colspan="2">PENDING</td></tr>')
       angular.element(invited).appendTo('#member-list');
       $scope.email = '';
     };
-  });
+  })
+.filter('lastname', function () {
+  return function (input) {
+    return input.split('')[1].sort();
 
+  }
+});
 

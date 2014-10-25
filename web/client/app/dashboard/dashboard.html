@@ -22,13 +22,17 @@
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
       </div>
-
       <div id="info-box" class="col-md-6">
         <div id="dash-location">
-          My Groups
+            {{currentGroup.groupName}}
         </div>
+        <div>{{currentGroup.members.length}} members</div>
+        <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
+          <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
+          <span class="fa fa-edit"></span> Edit Profile
+          </button>
+        </a>
         <div id="live-update">
-          Group added.
         </div>
       </div>
 
