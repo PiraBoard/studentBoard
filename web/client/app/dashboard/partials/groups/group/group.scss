@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-#group table #invite-email {
+#group table #invite-email, #group table #invite-name  {
   display: inline-block;
   margin: 0 5px 0 20px;
   width: 60%;
@@ -17,7 +17,11 @@
 }
 
 #group .form-control, #group form {
-  display: inline-block;
+  display: inline;
+}
+
+#group .form-control {
+  width: 20%;
 }
 
 #group form {

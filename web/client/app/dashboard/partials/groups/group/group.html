@@ -33,6 +33,11 @@
     <input type='input' id="invite-email" class="form-control" placeholder="newmember@email.com" ng-model="email" />
   </form>
   <div ng-controller="BatchCtrl">
+  <div id="invite">
+    <form ng-show="isAdmin()" ng-submit="inviteEmail(name,email)">
+      <input type='input' id="invite-name" class="form-control" placeholder="New Member" ng-model="name" />
+      <input type='input' id="invite-email" class="form-control" placeholder="newmember@email.com" ng-model="email" />
+    </form>
     <button type="button" id="batch-upload" class="btn btn-default btn-sm" tooltip="Import a .csv file with an 'email' column and we'll take care of the invites for you" ng-show="isAdmin()" ng-file-select="onFileSelect($files)">
       <span class="fa fa-upload"></span> Batch Upload
     </button>

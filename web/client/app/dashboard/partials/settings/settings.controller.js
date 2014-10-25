@@ -1,12 +1,19 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('SettingsCtrl', function ($scope, Auth, User, $location, $window, $timeout) {
+  .controller('SettingsCtrl', function ($scope, $http, $location, $window, $timeout,  Auth, User, AllUsers) {
     $scope.errors = {};
     $scope.savedSuccessfully = false;
     $scope.user = User.get();
+    $scope.allUsers = AllUsers.query();
     //Should populate text fields based on user info
     //retrieved from server
+
+   //  $http.get('/api/users').success(function(users) {
+   //    console.log(users);
+   //   $scope.users = users;
+   // });
+
 
     $scope.save = function(form) {
       $scope.submitted = true;
