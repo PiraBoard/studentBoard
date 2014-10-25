@@ -18,10 +18,10 @@ angular.module('piraBoardApp')
       }
     };
 
-    $scope.onFileSelect = function () {
-      alert('clicked!');
-      //put batch file upload logic here
-    };
+    // $scope.onFileSelect = function () {
+    //   alert('clicked!');
+    //   //put batch file upload logic here
+    // };
     $scope.inviteEmail = function (email) {
       // send email invite to email
       var invited = angular.element('<tr><td></td><td>' + email +'</td><td colspan="2">PENDING</td></tr>')

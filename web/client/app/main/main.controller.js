@@ -4,6 +4,8 @@ angular.module('piraBoardApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.awesomeThings = [];
 
+    console.log('What is it? ', this);
+
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
     });

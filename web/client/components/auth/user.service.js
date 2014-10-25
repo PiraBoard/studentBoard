@@ -17,6 +17,13 @@ angular.module('piraBoardApp')
         params: {
           id:'me'
         }
+      },
+      sendInvite: {
+        method: 'PUT',
+        params: {
+          // id: '54481e9e30ec68af54d9f680',//testing only, remove soon
+          controller:'invite'
+        }
       }
 	  });
   });

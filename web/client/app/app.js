@@ -29,11 +29,17 @@ angular.module('piraBoardApp', [
 
       // Intercept 401s and redirect you to login
       responseError: function(response) {
+        console.log('redirected resp: ', response);
         if(response.status === 401) {
-          $location.path('/login');
-          // remove any stale tokens
-          $cookieStore.remove('token');
-          return $q.reject(response);
+          console.log('work around me: ', response);
+
+          // console.log(response.config.url.substring(0, 22));
+          if(response.config.url.substring(0, 22) !== "/api/users/invitation/"){
+            $location.path('/login');
+            // remove any stale tokens
+            $cookieStore.remove('token');
+            return $q.reject(response);
+          }
         }
         else {
           return $q.reject(response);

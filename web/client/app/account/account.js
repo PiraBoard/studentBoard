@@ -13,4 +13,9 @@ angular.module('piraBoardApp')
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupCtrl'
       })
+      .state('invitation', {
+        url:'/invitation/:id',
+        templateUrl: 'app/account/invitation/invitation.html',
+        controller: 'InvitationCtrl'
+      })
   });

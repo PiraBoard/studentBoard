@@ -15,9 +15,36 @@ angular.module('piraBoardApp')
       });
     };
 
-    $scope.email = function(user){
+    $scope.email = function(user, callback){
+      var cb = callback || angular.noop;
+
       //Call server with user._id
       //Server will send user an invitation email
+      console.log('USER: ', user._id);
+
+      User.sendInvite({id: user._id},{},
+        function(user) {
+          console.log('sent?');
+          return cb(user);
+        }, function(err) {
+          console.log('not sent: ', err);
+          return cb(err);
+        }).$promise;
+
+      // $http.put('/users/api/' + user._id + '/invite', {
+
+      // }).
+      // success(function(data) {
+      //   $cookieStore.put('token', data.token);
+      //   currentUser = User.get();
+      //   deferred.resolve(data);
+      //   return cb();
+      // }).
+      // error(function(err) {
+      //   this.logout();
+      //   deferred.reject(err);
+      //   return cb(err);
+      // }.bind(this));
 
       //Should be greyed out for users whom have been sent an invite email already
       console.log('email');
