@@ -1,3 +1,25 @@
-#group .delete {
+#group table tr {
   text-align: center;
+}
+
+#group table th {
+  text-align: center;
+}
+
+#group table #invite-email {
+  display: inline-block;
+  margin: 0 5px 0 20px;
+  width: 60%;
+}
+
+#group #batch-upload {
+  height: 34px;
+}
+
+#group .form-control, #group form {
+  display: inline-block;
+}
+
+#group form {
+  width: 70%;
 }

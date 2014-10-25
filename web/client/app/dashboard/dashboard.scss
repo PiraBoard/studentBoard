@@ -54,9 +54,13 @@
   text-align: left;
   padding: 0 0 0 20px;
 }
+#dashboard #panel #sidebar .groups {
+  font-weight: bold;
+}
+
 #dashboard #panel #sidebar ul{
   list-style: none;  
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 #dashboard #panel #sidebar li:first-child {
@@ -77,4 +81,23 @@
 
 #dashboard #panel #sidebar ul > ul{
   padding-left: 10px;
+}
+
+#dashboard #panel #sidebar .active a {
+  padding-left: 10px;
+}
+
+#dashboard #panel > .row, #panel > .row > div[class*="col-"] {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+#dashboard #panel #sidebar .add-group:hover {
+  cursor: pointer;
+}
+
+#dashboard .fa-tachometer {
+  color: #e7e7e7;
+  font-size: 10em;
+  margin-left: 40px;
 }

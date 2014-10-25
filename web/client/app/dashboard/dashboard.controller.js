@@ -4,43 +4,35 @@ angular.module('piraBoardApp')
   .controller('DashboardCtrl', function ($scope, $http, Auth) {
     $scope.numGroups = 0;
     $scope.numLead = 0;
+    $scope.addGroupToggle = false; 
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.currentGroup = {}; // currently selected group
     $scope.groups = [
       {
         groupName:'Omnicron', 
-        members: [{name:'Jim', role: 'user'}, {name: 'John', role: 'admin'}]
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
       },       
       {
         groupName:'CSI110', 
-        members: [{name:'Tony', role: 'user'}, {name:'Tony', role: 'user'}, {name: 'John', role: 'admin'}]
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
       }, 
       {
         groupName:'Micronub',
-        members: [{name:'Alex', role: 'user'}, {name:'Tony', role: 'user'}, {name: 'Jose', role: 'admin'}]
-
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
       }
     ];
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    // Join/Create button switch 
-    $scope.groupInput = true;
-    $scope.currentGroup = {};
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
 
     $scope.getGroup = function(index) {
       return $scope.currentGroup = $scope.groups[index];
     };
 
+    $scope.isCurrentGroup = function (group) {
+      return $scope.currentGroup.groupName === group;
+    };
+
+    $scope.createGroup = function (name) {
+      alert(name);
+      // make group in database and add group to list on success
+      $scope.groups.push( {groupName: name, members: []} );
+    };
   });
