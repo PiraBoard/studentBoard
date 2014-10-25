@@ -18,7 +18,16 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+
+  //ADDED PROPERTIES TO USER MODEL SCHEMA
+
+  city: {type: String, default: "San Francisco"},
+  state: {type: String, default: "CA"},
+  admin: {type: Boolean, default: false},
+  group: {type: String, default: 'general'}
+
+
 });
 
 /**
