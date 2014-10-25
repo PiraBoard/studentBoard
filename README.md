@@ -5,9 +5,9 @@ An open-source team learning tool
 
 ## Team
 
-  - __Product Owner__: Mike Horan
+  - __Product Owner__: 
   - __Scrum Master__: Michael Pinter
-  - __Development Team Members__: Andrew Teich, Jameson Gamble
+  - __Development Team Members__: Andrew Teich, Jameson Gamble, Mike Horan
 
 ## Table of Contents
 
