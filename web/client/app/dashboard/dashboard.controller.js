@@ -32,6 +32,7 @@ angular.module('piraBoardApp')
 
     $scope.createGroup = function (name) {
       alert(name);
+      console.log('creating a group');
       // make group in database and add group to list on success
       $scope.groups.push( {groupName: name, members: []} );
     };
