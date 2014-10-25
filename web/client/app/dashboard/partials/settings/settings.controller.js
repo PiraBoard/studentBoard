@@ -1,29 +1,11 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('SettingsCtrl', function ($scope, Auth, $location, $window, $timeout) {
+  .controller('SettingsCtrl', function ($scope, Auth, User, $location, $window, $timeout) {
     $scope.errors = {};
     $scope.savedSuccessfully = false;
-    $scope.imagePath = 'images/forever_alone.jpg';
-    $("#imgInput").change(function(){
-        readURL(this);
-    });
-
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function (e) {
-          $('#imageView').attr('src', e.target.result);
-        }
-        
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-
-
-
-    //Should populate text fields based on user into
+    $scope.user = User.get();
+    //Should populate text fields based on user info
     //retrieved from server
 
     $scope.save = function(form) {

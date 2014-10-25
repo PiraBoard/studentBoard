@@ -12,5 +12,3 @@ angular.module('piraBoardApp')
       }
     });
   });
-
-

@@ -2,11 +2,6 @@
 
 angular.module('piraBoardApp')
   .controller('DashboardCtrl', function ($scope, $http, Auth) {
-    $scope.numGroups = 0;
-    $scope.numLead = 0;
-    $scope.addGroupToggle = false; 
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.currentGroup = {}; // currently selected group
     $scope.groups = [
       {
         groupName:'Omnicron', 
@@ -21,6 +16,11 @@ angular.module('piraBoardApp')
         members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
       }
     ];
+    $scope.numLead = 0;
+    $scope.numGroups = $scope.groups.length;
+    $scope.addGroupToggle = false; 
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.currentGroup = {}; // currently selected group
 
     $scope.getGroup = function(index) {
       return $scope.currentGroup = $scope.groups[index];
@@ -35,5 +35,6 @@ angular.module('piraBoardApp')
       console.log('creating a group');
       // make group in database and add group to list on success
       $scope.groups.push( {groupName: name, members: []} );
+      $scope.numGroups++ && $scope.numLead++;
     };
   });
