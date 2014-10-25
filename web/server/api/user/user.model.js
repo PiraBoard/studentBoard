@@ -25,7 +25,7 @@ var UserSchema = new Schema({
   city: {type: String, default: "San Francisco"},
   state: {type: String, default: "CA"},
   admin: {type: Boolean, default: false},
-  group: {type: String, default: 'general'}
+  group: {type: String, default: 'Default Group'}
 
 
 });
