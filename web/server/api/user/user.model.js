@@ -22,12 +22,12 @@ var UserSchema = new Schema({
 
   //ADDED PROPERTIES TO USER MODEL SCHEMA
 
-  city: {type: String, default: "San Francisco"},
-  state: {type: String, default: "CA"},
-  admin: {type: Boolean, default: false},
+  location: {type: String, default: "San Francisco, CA"},
+  isAdmin: {type: Boolean, default: false},
   group: {type: String, default: 'Default Group'},
-  photo: {type: String}
-  phonenumber: {type: String, default: '555-555-5555'}
+  photo: {type: String},
+  phonenumber: {type: String, default: '555-555-5555'},
+  bio: {type: String, default: 'Fill in your bio'}
 
 });
 
