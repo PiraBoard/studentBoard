@@ -27,7 +27,8 @@ var UserSchema = new Schema({
   admin: {type: Boolean, default: false},
   group: {type: String, default: 'Default Group'},
   photo: {type: String}
-  
+  phonenumber: {type: String, default: '555-555-5555'}
+
 });
 
 /**
