@@ -1,0 +1,49 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div id='dashboard'>  
+  <header class="hero-unit" id="banner">
+    <div class="row">
+      <div class="col-md-1">
+        <p>
+          <i class="fa fa-mobile fa-2x"></i>
+        </p>
+        <p>
+          <i class="fa fa-users fa-5x"></i>
+        </p>
+      </div>
+      <div class="col-md-8 greeting"> Hi, {{ getCurrentUser().name }} </div>
+      <div class="col-md-8"> 
+        <p>
+          You belong to {{ numGroups }} groups and lead {{ numLead }} groups.
+        </p>
+        <div>
+          Filter by Name: <input ng-model = 'filterby.name'>
+          Filter by Group: <input ng-model = 'filterby.group'>
+          <div ng-repeat="user in users | filter:filterby">
+            <ul>
+              <li> {{user.name}} </li>
+              <li> {{user.group}} </li>
+        </div>
+    </div>
+  </header>
+
+<div class="sidebar row">
+  <div class="col-md-1 menu">
+    <div>
+      Profile
+    </div>
+    <div>
+      Groups
+    </div>
+  </div>
+  <div class="col-md-11"></div>
+</div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>PiraBoard |
+        <a href="https://github.com/PiraBoard/studentBoard">Project</a> |
+        <a href="https://github.com/PiraBoard/studentBoard/issues">Issues</a></p>
+      </div>
+    </footer>
+  </div>
