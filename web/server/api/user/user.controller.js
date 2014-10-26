@@ -46,7 +46,6 @@ exports.create = function (req, res, next) {
   createUser(req.body, function(err, user) {
     if (err) return validationError(res, err);
     if(!newInvitation){
-      console.log('what is happening?!')
       var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
       res.json({ token: token });
     } else {
@@ -67,12 +66,13 @@ var createUser = function(userData, callback){
     var user = users[0];
     if(user){
       console.log('user mongoose: ', user);
-      var groups = [user.group];
+      // var groups = [user.group];
       if(user.group !== userData.group){
-        groups.push(userData.group);
-        user.group = groups;
+        user.group.push(userData.group);
+        // user.group = groups;
         user.save(function(err, user){
-          // callback(err, user);
+          //error, createdUser, userAlreadyExists
+          callback(err, user, true);
           console.log('added group ' + userData.group + ' to ' + user.name);
         });
       }
@@ -103,10 +103,10 @@ exports.createManyUsers = function(req, res, next){
   for(var i=0; i<newUsers.length; i++){
     var newUser = JSON.parse(newUsers[i]);
     // console.log(newUser);
-    createUser(newUser, function(err, user) {
+    createUser(newUser, function(err, user, existedAlready) {
       if (err){
         console.log('error adding users: ', err);
-      } else {
+      } else if(!existedAlready) {
         usersAdded.push(user);
 
         if(usersAdded.length === req.body.users.length){
@@ -315,7 +315,7 @@ exports.updateProfile = function(req, res, next) {
   * Gets all users in a group
   */
 exports.getUsersOfGroup = function(req, res, next){
-  var group = req.params.group;
+  var group = req.params.group;//, name:{'$ne':'admin'}
   User.find( { group:group }, '-salt -hashedPassword', function (err, users) {
     if(err){
       console.log('server - user.controller - getUsersOfGroup - ', err);
@@ -325,7 +325,7 @@ exports.getUsersOfGroup = function(req, res, next){
 };
 
 exports.getActiveUsersOfGroup = function(req, res, next){
-  var group = req.params.group;
+  var group = req.params.group;      //, name:{'$ne':'admin'} 
   User.find( { group:group, active:true }, '-salt -hashedPassword', function (err, users) {
     if(err){
       console.log('server - user.controller - getActiveUsersOfGroup - ', err);
@@ -335,12 +335,36 @@ exports.getActiveUsersOfGroup = function(req, res, next){
 };
 
 exports.getInvitedUsersOfGroup = function(req, res, next){
-  var group = req.params.group;
-  User.find( { group:group, active:false }, '-salt -hashedPassword', function (err, users) {
+  var group = req.params.group;//, name:{'$ne':'admin'}
+  User.find( { group:group, active:false  }, '-salt -hashedPassword', function (err, users) {
     if(err){
       console.log('server - user.controller - getInvitedUsersOfGroup - ', err);
     }
     res.json(users);
+  });
+};
+
+/**
+  * Get a list of all groups
+  */
+exports.getAllUserGroups = function(req, res, next){
+  console.log('getAllGroups');
+  User.distinct('group', function(err, data){
+
+    res.json(200, data);
+  });
+};
+
+/**
+  * Create a new group
+  */
+exports.createGroup = function(req, res){
+  var group = req.params.group;
+  createUser({name:'Admin', group:group, password:'admin'}, function(err, user){
+    if(err){
+      console.log('error creating group - ', err);
+    }
+    res.json(200, user.group);
   });
 };
 

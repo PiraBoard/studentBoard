@@ -17,17 +17,6 @@ angular.module('piraBoardApp')
         console.log(invitationFactory.password);
         $location.path("/dashboard/settings");
       });
-      // Auth.loginWithToken(data.token, function(){
-      //   alert('go to settings');
-      //   // $location.path( "/settings" );
-      //   // alert('went to settings');
-      // })
-      // .then(function(){
-      //   $location.path("/");
-      // })
-      // .catch(function(err){
-      //   console.log(err);
-      // });
     });
 
     $scope.register = function(form) {

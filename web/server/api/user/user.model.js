@@ -25,7 +25,7 @@ var UserSchema = new Schema({
 
   location: {type: String, default: "San Francisco, CA"},
   isAdmin: {type: Boolean, default: false},
-  group: {type: String, default: 'Default Group'},
+  group: {type: Array, default: ['Default Group']},
   photo: {type: String},
   phonenumber: {type: String, default: '555-555-5555'},
   bio: {type: String, default: 'Fill in your bio'}
