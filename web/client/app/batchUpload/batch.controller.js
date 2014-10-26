@@ -43,6 +43,8 @@ angular.module('piraBoardApp')
             }).
             success(function(data) {
               console.log('server is adding new users');
+              // $scope.getUsersOfGroup();
+              $scope.addGroupMembers($scope.groupName, data);
             }).
             error(function(err) {
               console.log('error adding user: ', err);

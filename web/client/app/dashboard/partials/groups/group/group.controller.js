@@ -6,6 +6,25 @@ angular.module('piraBoardApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.users = User.query();
 
+    $scope.getUsersOfGroup = function(){
+
+      $http.get('/api/users/getUsersOfGroup/' +  $scope.groupName, {
+      }).
+      success(function(data) {
+        console.log('Received users from ' + $scope.groupName);
+        console.log(data);
+        if(data.length !== $scope.users.length){
+          $scope.users = data;
+          $scope.setGroupMembers($scope.groupName, data);
+          // $scope.addGroupMembers($scope.groupName, data);
+        }
+      }).
+      error(function(err) {
+        console.log('Error getting users from ' + $scope.groupName);
+        console.log(err);
+      }.bind(this));
+    };
+
     $scope.delete = function(user) {
       if ( confirm('Really remove ' + user.name + '?')) {
         User.remove({ id: user._id });
@@ -16,6 +35,9 @@ angular.module('piraBoardApp')
         });
       }
     };
+    
+    $scope.getUsersOfGroup();
+
 
     $scope.inviteEmail = function (email) {
       // send email invite to email
