@@ -1,10 +1,23 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('GroupCtrl', function ($scope, $http, $filter, $stateParams, Auth, User) {
+<<<<<<< HEAD
+  .controller('GroupCtrl', function ($scope, $filter, $http, $stateParams, Auth, User) {
+    $scope.groupName = $scope.groups[$stateParams.name];
+=======
+  .controller('GroupCtrl', function ($scope, $http, $stateParams, Auth, User) {
     $scope.groupName = $stateParams.name;
+>>>>>>> Batch uploaded users can now have groups
     $scope.isAdmin = Auth.isAdmin;
     $scope.users = User.query();
+    // sortBy controls
+      // $scope.reverse = true;
+      // var orderBy = $filter('orderBy');
+      // $scope.order = function(predicate, reverse) {
+      //   console.log($scope.currentGroup.members, predicate, reverse);
+      //   $scope.currentGroup = orderBy($scope.currentGroup.members, predicate, reverse);
+      // };
+      // // $scope.order('-name',false);
 
     $scope.delete = function(user) {
       if ( confirm('Really remove ' + user.name + '?')) {

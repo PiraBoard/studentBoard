@@ -12,24 +12,17 @@ angular.module('piraBoardApp')
         controller:'password'
       }
     },
-      changePassword: {
-        method: 'PUT',
-        params: {
-          controller:'password'
-        }
-      },
-      get: {
-        method: 'GET',
-        params: {
-          id:'me'
-        }
-      },
-      sendInvite: {
-        method: 'PUT',
-        params: {
-          // id: '54481e9e30ec68af54d9f680',//testing only, remove soon
-          controller:'invite'
-        }
+    get: {
+      method: 'GET',
+      params: {
+        id:'me'
+      }
+    },
+    sendInvite: {
+      method: 'PUT',
+      params: {
+        // id: '54481e9e30ec68af54d9f680',//testing only, remove soon
+        controller:'invite'
       }
     }
   });

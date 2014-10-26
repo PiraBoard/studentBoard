@@ -24,6 +24,7 @@ angular.module('piraBoardApp')
     $scope.currentGroup = {}; // currently selected group
 
     $scope.getGroup = function(index) {
+      console.log('get group: ', $scope.groups[index]);
       return $scope.currentGroup = $scope.groups[index];
     };
 
