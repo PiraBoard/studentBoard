@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('piraBoardApp')
+<<<<<<< HEAD
   .controller('DashboardCtrl', function ($scope, $http, Auth) {
     $scope.groups = [];
 
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groupIndexFromName = {}
   .controller('DashboardCtrl', function ($scope, $http, Auth, AllUsers) {
+=======
+  .controller('DashboardCtrl', function ($scope, $http, Auth, AllUsers, Modal) {
+>>>>>>> Modal is working!
     $scope.groups = [
       {
         groupName:'Omnicron', 
@@ -133,5 +137,15 @@ angular.module('piraBoardApp')
       });
     };
 
+<<<<<<< HEAD
     $scope.updateGroupsFromServer();
+=======
+
+
+    $scope.initPiraBoard = function (data) {
+      console.log('in initPiraBoard')
+      return Modal.app('hi');
+      // return Modal.app(data);
+    }
+>>>>>>> Modal is working!
   });

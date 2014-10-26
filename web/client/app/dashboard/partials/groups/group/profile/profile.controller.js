@@ -6,7 +6,7 @@ angular.module('piraBoardApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.userImage = '';
 
-    $scope.user = function () {
+    $scope.user = (function () {
       User.get().$promise.then(function (user) {
         $scope.name = user.name;
         $scope.email = user.email;
@@ -14,23 +14,20 @@ angular.module('piraBoardApp')
         $scope.location = user.location;
         $scope.bio = user.bio;
       });
-    }
-    $scope.user();
+    }());
 
     $scope.update = function () {
       var id = $scope.user._id;
-      console.log(id);
       var profile = {
         name: $scope.name,
         email: $scope.email,
-        phonenumber: $scope.number,
+        phonenumber: $scope.phonenumber,
         location: $scope.location,
-        bio: $scope.biography,
-        photo: $scope.userImage,
+        bio: $scope.bio,
+        photo: $scope.photo,
       };
-      console.log('in update');
       User.update({profile: profile});
-    }
+    };
     $scope.convertImg = function(url, callback, outputFormat) {
       // angular wraps element in an array so we use [0] to get element
       var canvas = angular.element('<canvas></canvas>')[0]; 
@@ -39,7 +36,6 @@ angular.module('piraBoardApp')
       console.log(img);
       img.crossOrigin = 'Anonymous';
       img.onload = function(){
-        console.log('there');
         canvas.height = 200;
         canvas.width = 200;
         ctx.drawImage(img,0,0);
@@ -50,9 +46,7 @@ angular.module('piraBoardApp')
       img.src = url;
     };
     $scope.addImage = function() {
-      console.log('here');
       $scope.convertImg($scope.userImage, function(base64Img) {
-        console.log('boner', base64Img);
         $scope.userImage = base64Img;
       });
       // .addImage($scope.userImage);

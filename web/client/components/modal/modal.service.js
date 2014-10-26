@@ -20,7 +20,21 @@ angular.module('piraBoardApp')
         windowClass: modalClass,
         scope: modalScope
       });
-    }
+    };    
+
+    function openApp(scope, modalClass) {
+      var modalScope = $rootScope.$new();
+      scope = scope || {};
+      modalClass = modalClass || 'modal-default';
+
+      angular.extend(modalScope, scope);
+
+      return $modal.open({
+        templateUrl: 'components/modal/app.html',
+        windowClass: modalClass,
+        scope: modalScope
+      });
+    };
 
     // Public API here
     return {
@@ -72,6 +86,39 @@ angular.module('piraBoardApp')
             });
           };
         }
+      },
+      // data is group members
+      app: function(data) {
+        console.log('in app');
+        return (function () {
+          console.log('in closure');
+          var appModal;
+
+          appModal = openApp({
+            modal: {
+              title: 'Omnicron',
+              text: 'Modal testing',
+              buttons: [{
+                  classes: 'btn-left',
+                  text: '<span class="fa fa-arrow-left"></span>',
+                  click: function(e) {
+                    appModal.previous(e);
+                  }
+                }, 
+                {
+                  classes: 'btn-right',
+                  text: '<span class="fa fa-arrow-right"></span>',
+                  click: function(e) {
+                    appModal.next(e);
+                  }
+                }]
+            }
+          }, 'modal-default');
+
+          appModal.then(function(event) {
+            alert('works');
+          })
+        }());
       }
     };
   });
