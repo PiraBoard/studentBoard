@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: 'andrewjteich@gmail.com', //*** NEED TO CHANGE THIS ***
-        pass: 'vztuyeiymkqzusbe' // *** NEED TO HIDE THIS!!!!!!!!!!!!!!!!!!! ***
+        pass: '' // *** NEED TO HIDE THIS!!!!!!!!!!!!!!!!!!! ***
     }
 });
 
@@ -70,6 +70,7 @@ var createUser = function(userData, callback){
 
       newUser.save(function(err, createdUser){
         callback(err, createdUser);
+        sendInvitation(createdUser._id);
       });
     }
   });
@@ -81,6 +82,7 @@ var createUser = function(userData, callback){
   */
 exports.createManyUsers = function(req, res, next){
   var newUsers = req.body.users;
+  var usersAdded = [];
 
   for(var i=0; i<newUsers.length; i++){
     var newUser = JSON.parse(newUsers[i]);
@@ -88,11 +90,15 @@ exports.createManyUsers = function(req, res, next){
     createUser(newUser, function(err, user) {
       if (err){
         console.log('error adding users: ', err);
+      } else {
+        usersAdded.push(user);
+
+        if(usersAdded.length === req.body.users.length){
+          res.json(usersAdded);
+        }
       }
     });
   }
-
-  res.json({'Added new users': true});
 };
 
 /**
@@ -111,36 +117,42 @@ exports.show = function (req, res, next) {
 /**
  * Send Invite Email
  */
+
+var sendInvitation = function(userId){
+  //generate unique url for user's initial login
+  var uniqueUrl = 'localhost:9000/invitation/' + _generateAuthString(userId);
+
+  // setup e-mail data with unicode symbols
+  var mailOptions = {
+      from: 'Master Pira <noreply@piraboard.com>',
+      to: 'andrewjteich@gmail.com, andrewteich@me.com', // list of receivers - *** change to user.email ***
+      subject: 'Hello', // Subject line
+      text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
+      html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
+      // text: 'Username: ' + '',
+      // html: ''
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+          console.log(error);
+      }else{
+          console.log('Message sent: ' + info.response);
+      }
+  });
+};
+
 exports.sendInvite = function (req, res, next) {
   console.log('inside send invite Express.js');
   var userId = req.params.id;
+  sendInvitation(userId);
 
   //User.findById(userId, function (err, user) {
     // if (err) return next(err);
     // if (!user) return res.send(401);
 
-    //generate unique url for user's initial login
-    var uniqueUrl = 'localhost:9000/invitation/' + _generateAuthString(userId);
-
-    // setup e-mail data with unicode symbols
-    var mailOptions = {
-        from: 'Master Pira <noreply@piraboard.com>',
-        to: 'andrewjteich@gmail.com, andrewteich@me.com', // list of receivers - *** change to user.email ***
-        subject: 'Hello', // Subject line
-        text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
-        html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
-        // text: 'Username: ' + '',
-        // html: ''
-    };
-
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Message sent: ' + info.response);
-        }
-    });
+    
     res.send(200);
   //});
 };
@@ -275,6 +287,19 @@ exports.updateProfile = function(req, res, next) {
     } else {
       res.send(403);
     }
+  });
+};
+
+/**
+  * Gets all users in a group
+  */
+exports.getUsersOfGroup = function(req, res, next){
+  var group = req.params.group;
+  console.log('getUsersOfGroup: ', group);
+  User.find( { group:group }, '-salt -hashedPassword', function (err, users) {
+    console.log('error: ', err);
+    console.log('got users from group: ', users);
+    res.json(users);
   });
 };
 
