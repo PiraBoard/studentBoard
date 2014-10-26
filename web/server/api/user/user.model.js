@@ -45,6 +45,22 @@ UserSchema
     return this._password;
   });
 
+  UserSchema
+  .virtual('update')
+  .set(function(profile) {
+    console.log('THE FINAL STEP', profile);
+    this.name = name;
+    this.email = email;
+    this.phonenumber = phonenumber;
+    this.location = location;
+    this.bio = bio;
+    this.photo = photo;
+  })
+  .get(function() {
+
+    return this._password;
+  });
+
 // Public profile information
 UserSchema
   .virtual('profile')

@@ -1,1 +1,39 @@
-ITS WORKING
+<div id="profile" class="row">
+  <div class="col-md-3">
+    
+    <form role="form">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="input" class="form-control" id="input-full-name" placeholder="Enter name" ng-model="name" />
+      </div>
+      <div class="form-group">
+        <label for="city">Email</label>
+        <input type="email" class="form-control" id="input-email" placeholder="Enter email" ng-model="email" />
+      </div>
+      <div class="form-group">
+        <label for="city">Phone Number</label>
+        <input type="input" class="form-control" id="input-phone" placeholder="Enter phone number" ng-model="number" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="input" class="form-control" id="input-location" placeholder="Enter location" ng-model="location" />
+      </div>
+      <div class="form-group">
+        <label for="city">Biography</label>
+        <textarea class="form-control" id="input-biography" ng-model="biography">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label for="picture">Image</label>
+        <input type="file" id="picture" fileread="userImage" />
+
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="update()">Submit</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    {{userImage}}
+    {{user._id}}
+    {{name}}
+  </div>
+</div>
