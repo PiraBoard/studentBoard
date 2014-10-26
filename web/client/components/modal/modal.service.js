@@ -87,39 +87,16 @@ angular.module('piraBoardApp')
           };
         }
       },
-      // data is group members
       app: function(data) {
         return (function () {
-        console.log(data);
           var appModal;
-
           appModal = openApp({
             modal: {
               members: data.members,
               title: data.groupName,
-              count: 0,
-              buttons: [{
-                  classes: 'btn-default left-button',
-                  text: '',
-                  icon: 'fa fa-arrow-left',
-                  click: function(e) {
-                    appModal.previous(e);
-                  }
-                }, 
-                {
-                  classes: 'btn-default right-button',
-                  text: '',
-                  icon: 'fa fa-arrow-right',
-                  click: function(e) {
-                    appModal.next(e);
-                  }
-                }]
+              count: 0
             }
           }, 'modal-default');
-
-          // appModal.then(function(event) {
-          //   alert('works');
-          // })
         }());
       }
     };

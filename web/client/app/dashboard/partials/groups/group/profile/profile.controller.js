@@ -1,39 +1,38 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('ProfileCtrl', function ($scope, $filter, $http, $stateParams, Auth, User) {
+  .controller('ProfileCtrl', function ($scope, $filter, $http, $stateParams, Auth, User, Image) {
     $scope.groupName = $scope.groups[$stateParams.name];
     $scope.isAdmin = Auth.isAdmin;
-    $scope.userImage = '';
+    $scope.user = {};
+    $scope.encode = Image.log;
+    User.get().$promise.then(function (user) {
+      $scope.user.name = user.name;
+      $scope.user.email = user.email;
+      $scope.user.phonenumber = user.phonenumber;
+      $scope.user.location = user.location;
+      $scope.user.bio = user.bio;
+      $scope.user.photo = user.photo;
+    });
 
-    $scope.user = (function () {
-      User.get().$promise.then(function (user) {
-        $scope.name = user.name;
-        $scope.email = user.email;
-        $scope.phonenumber = user.phonenumber;
-        $scope.location = user.location;
-        $scope.bio = user.bio;
-      });
-    }());
+    $scope.encode($scope.user.photo);
 
     $scope.update = function () {
-      var id = $scope.user._id;
-      var profile = {
-        name: $scope.name,
-        email: $scope.email,
-        phonenumber: $scope.phonenumber,
-        location: $scope.location,
-        bio: $scope.bio,
-        photo: $scope.photo,
+      var payload = {
+        name: $scope.user.name,
+        email: $scope.user.email,
+        phonenumber: $scope.user.phonenumber,
+        location: $scope.user.location,
+        bio: $scope.user.bio,
+        photo: $scope.user.photo,
       };
-      User.update({profile: profile});
+      User.update({profile: payload});
     };
     $scope.convertImg = function(url, callback, outputFormat) {
       // angular wraps element in an array so we use [0] to get element
       var canvas = angular.element('<canvas></canvas>')[0]; 
       var ctx = canvas.getContext('2d');
       var img = new Image;
-      console.log(img);
       img.crossOrigin = 'Anonymous';
       img.onload = function(){
         canvas.height = 200;
@@ -51,4 +50,4 @@ angular.module('piraBoardApp')
       });
       // .addImage($scope.userImage);
     }
-  });
+  })
