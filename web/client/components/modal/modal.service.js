@@ -99,15 +99,17 @@ angular.module('piraBoardApp')
               title: 'Omnicron',
               text: 'Modal testing',
               buttons: [{
-                  classes: 'btn-left',
-                  text: '<span class="fa fa-arrow-left"></span>',
+                  classes: 'btn-default left-button',
+                  text: '',
+                  icon: 'fa fa-arrow-left',
                   click: function(e) {
                     appModal.previous(e);
                   }
                 }, 
                 {
-                  classes: 'btn-right',
-                  text: '<span class="fa fa-arrow-right"></span>',
+                  classes: 'btn-default right-button',
+                  text: '',
+                  icon: 'fa fa-arrow-right',
                   click: function(e) {
                     appModal.next(e);
                   }
@@ -115,9 +117,9 @@ angular.module('piraBoardApp')
             }
           }, 'modal-default');
 
-          appModal.then(function(event) {
-            alert('works');
-          })
+          // appModal.then(function(event) {
+          //   alert('works');
+          // })
         }());
       }
     };
