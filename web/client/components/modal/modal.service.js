@@ -97,6 +97,7 @@ angular.module('piraBoardApp')
             modal: {
               members: data.members,
               title: data.groupName,
+              count: 0,
               buttons: [{
                   classes: 'btn-default left-button',
                   text: '',
