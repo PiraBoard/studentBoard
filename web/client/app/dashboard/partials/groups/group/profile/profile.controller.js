@@ -4,8 +4,18 @@ angular.module('piraBoardApp')
   .controller('ProfileCtrl', function ($scope, $filter, $http, $stateParams, Auth, User) {
     $scope.groupName = $scope.groups[$stateParams.name];
     $scope.isAdmin = Auth.isAdmin;
-    $scope.user = User.get();
     $scope.userImage = '';
+
+    $scope.user = function () {
+      User.get().$promise.then(function (user) {
+        $scope.name = user.name;
+        $scope.email = user.email;
+        $scope.phonenumber = user.phonenumber;
+        $scope.location = user.location;
+        $scope.bio = user.bio;
+      });
+    }
+    $scope.user();
 
     $scope.update = function () {
       var id = $scope.user._id;

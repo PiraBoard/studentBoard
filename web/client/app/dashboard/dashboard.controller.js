@@ -6,6 +6,21 @@ angular.module('piraBoardApp')
 
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groupIndexFromName = {}
+  .controller('DashboardCtrl', function ($scope, $http, Auth, AllUsers) {
+    $scope.groups = [
+      {
+        groupName:'Omnicron', 
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+      },       
+      {
+        groupName:'CSI110', 
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+      }, 
+      {
+        groupName:'Micronub',
+        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+      }
+    ];
 
     $scope.numLead = 0;
     $scope.numGroups = $scope.groups.length;
@@ -13,6 +28,7 @@ angular.module('piraBoardApp')
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.allUsers = AllUsers.query();
     $scope.currentGroup = {}; // currently selected group
 
 
