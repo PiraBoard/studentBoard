@@ -12,10 +12,19 @@ angular.module('piraBoardApp')
         controller:'password'
       }
     },
+    //used for getting user information
     get: {
       method: 'GET',
       params: {
         id:'me'
+      }
+    },
+    // used for updating user profile
+    update: {
+      method: 'PUT',
+      params: {
+        id: 'me',
+        controller:'update'
       }
     },
     sendInvite: {

@@ -6,14 +6,21 @@ angular.module('piraBoardApp')
     $scope.savedSuccessfully = false;
     $scope.user = User.get();
     $scope.allUsers = AllUsers.query();
-    //Should populate text fields based on user info
-    //retrieved from server
 
-   //  $http.get('/api/users').success(function(users) {
-   //    console.log(users);
-   //   $scope.users = users;
-   // });
-
+    $scope.changePassword = function(form) {
+      $scope.submitted = true;
+      if(form.$valid) {
+        Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
+        .then( function() {
+          $scope.message = 'Password successfully changed.';
+        })
+        .catch( function() {
+          form.password.$setValidity('mongoose', false);
+          $scope.errors.other = 'Incorrect password';
+          $scope.message = '';
+        });
+      }
+    };
 
     $scope.save = function(form) {
       $scope.submitted = true;

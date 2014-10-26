@@ -22,7 +22,8 @@
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
       </div>
-      <div id="info-box" class="col-md-6">
+      {{profileToggle}}
+      <div id="info-box" class="col-md-6" ng-show="infoBoxToggle">
         <div id="dash-location">
             {{currentGroup.groupName}}
         </div>
@@ -35,9 +36,9 @@
         <div id="live-update">
         </div>
       </div>
-
     </div>
   </header>
+
   <div id="panel">    
     <div class="row">
       <div id="sidebar" class="col-md-2 menu">
@@ -47,7 +48,7 @@
           </li>
           <ul>
             <li ng-repeat="group in groups" ng-class="{'active': isCurrentGroup(group.groupName)}">
-              <a ng-href="/dashboard/groups/{{group.groupName}}" ng-click="getGroup($index)">
+              <a ng-href="/dashboard/groups/{{group.groupName}}" ng-click=" getGroup($index)">
                 <span class="fa fa-chevron-right" ng-show="false"></span>
                 <span class="fa fa-angle-right" ng-show="true"></span> 
                 {{group.groupName}}

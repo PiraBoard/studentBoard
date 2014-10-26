@@ -253,6 +253,32 @@ exports.changePassword = function(req, res, next) {
 };
 
 /**
+ * Updates the user's profile
+ */
+exports.updateProfile = function(req, res, next) {
+  var userId = req.user._id;
+  var profile = req.body.profile;
+  // next, parse the profile information
+  User.findById(userId, function (err, user) {
+    if (user) {
+      user.name = String(profile.name) || user.name;
+      user.email = String(profile.email) || user.email;
+      user.phonenumber = String(profile.phonenumber) || user.phonenumber;
+      user.location = String(profile.location) || user.location;
+      user.photo = String(profile.photo) || user.photo;
+      user.bio = String(profile.bio) || user.bio;
+
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(403);
+    }
+  });
+};
+
+/**
  * Get my info
  */
 exports.me = function(req, res, next) {
