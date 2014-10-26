@@ -89,15 +89,14 @@ angular.module('piraBoardApp')
       },
       // data is group members
       app: function(data) {
-        console.log('in app');
         return (function () {
-          console.log('in closure');
+        console.log(data);
           var appModal;
 
           appModal = openApp({
             modal: {
-              title: 'Omnicron',
-              text: 'Modal testing',
+              members: data.members,
+              title: data.groupName,
               buttons: [{
                   classes: 'btn-default left-button',
                   text: '',

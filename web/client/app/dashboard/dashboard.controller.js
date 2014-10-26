@@ -144,7 +144,7 @@ angular.module('piraBoardApp')
 
     $scope.initPiraBoard = function (data) {
       console.log('in initPiraBoard')
-      return Modal.app('hi');
+      return Modal.app(data);
       // return Modal.app(data);
     }
 >>>>>>> Modal is working!
