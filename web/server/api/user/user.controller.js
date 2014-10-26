@@ -43,13 +43,37 @@ exports.create = function (req, res, next) {
 
 //Modularity, FTW
 var createUser = function(userData, callback){
-  var newUser = new User(userData);
-  newUser.provider = 'local';
-  newUser.role = 'user';
+  //check if user already exists
+  // console.log(userData);
+  User.find({email: userData.email}, function (err, users) {
+    // if (err) return next(err);
+    // if (!user) return res.send(401);
+    var user = users[0];
+    if(user){
+      console.log('user mongoose: ', user);
+      var groups = [user.group];
+      if(user.group !== userData.group){
+        groups.push(userData.group);
+        user.group = groups;
+        user.save(function(err, user){
+          // callback(err, user);
+          console.log('added group ' + userData.group + ' to ' + user.name);
+        });
+      }
+    } else {
+      
+      // console.log('creating a new user')
+      var newUser = new User(userData);
+      console.log(userData);
+      newUser.provider = 'local';
+      newUser.role = 'user';
 
-  newUser.save(function(err, user){
-    callback(err, user);
+      newUser.save(function(err, createdUser){
+        callback(err, createdUser);
+      });
+    }
   });
+
 };
 
 /**

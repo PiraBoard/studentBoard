@@ -2,8 +2,7 @@
 
 angular.module('piraBoardApp')
   .controller('GroupCtrl', function ($scope, $http, $stateParams, Auth, User) {
-    
-    $scope.groupName = $scope.groups[$stateParams.name];
+    $scope.groupName = $stateParams.name;
     $scope.isAdmin = Auth.isAdmin;
     $scope.users = User.query();
 
