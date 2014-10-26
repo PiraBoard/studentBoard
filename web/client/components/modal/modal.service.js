@@ -20,7 +20,21 @@ angular.module('piraBoardApp')
         windowClass: modalClass,
         scope: modalScope
       });
-    }
+    };    
+
+    function openApp(scope, modalClass) {
+      var modalScope = $rootScope.$new();
+      scope = scope || {};
+      modalClass = modalClass || 'modal-default';
+
+      angular.extend(modalScope, scope);
+
+      return $modal.open({
+        templateUrl: 'components/modal/app.html',
+        windowClass: modalClass,
+        scope: modalScope
+      });
+    };
 
     // Public API here
     return {
@@ -72,6 +86,41 @@ angular.module('piraBoardApp')
             });
           };
         }
+      },
+      // data is group members
+      app: function(data) {
+        return (function () {
+        console.log(data);
+          var appModal;
+
+          appModal = openApp({
+            modal: {
+              members: data.members,
+              title: data.groupName,
+              count: 0,
+              buttons: [{
+                  classes: 'btn-default left-button',
+                  text: '',
+                  icon: 'fa fa-arrow-left',
+                  click: function(e) {
+                    appModal.previous(e);
+                  }
+                }, 
+                {
+                  classes: 'btn-default right-button',
+                  text: '',
+                  icon: 'fa fa-arrow-right',
+                  click: function(e) {
+                    appModal.next(e);
+                  }
+                }]
+            }
+          }, 'modal-default');
+
+          // appModal.then(function(event) {
+          //   alert('works');
+          // })
+        }());
       }
     };
   });

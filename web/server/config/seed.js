@@ -33,10 +33,33 @@ Thing.find({}).remove(function() {
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
-    name: 'Test User',
+    name: 'jim',
     email: 'test@test.com',
-    password: 'test'
-  }, {
+    password: 'test',
+    group: 'Omnicron'
+  }, 
+  {
+    provider: 'local',
+    name: 'Testy',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'Omnicron'
+  }, 
+  {
+    provider: 'local',
+    name: 'Testacool',
+    email: 'tqqwdest@test.com',
+    password: 'test',
+    group: 'Omnicron'
+  },  
+  {
+    provider: 'local',
+    name: ' perUser',
+    email: 'test@twefest.com',
+    password: 'test',
+    group: 'Omnicron'
+  }, 
+  {
     provider: 'local',
     role: 'admin',
     name: 'Admin',

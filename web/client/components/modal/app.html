@@ -1,0 +1,25 @@
+<div id="piraBoardApp">
+  <div class="modal-header">
+    <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+    <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+  </div>
+  <div class="modal-body">
+  <p>
+    {{modal.members[modal.count].name}}
+  </p>
+  <p>
+    {{modal.members[modal.count].location}}
+  </p>
+  <p>
+    {{modal.members[modal.count].bio}}
+  </p>
+  <p>
+    {{modal.members[modal.count].email}}
+  </p>
+  </div>
+  <div class="modal-footer">
+    <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="modal.count = modal.count < modal.members.length - 1 ? modal.count + 1 : 0" class="btn">
+      <span ng-class="button.icon" ng-bind="button.text"></span>
+    </button>
+  </div>
+</div>

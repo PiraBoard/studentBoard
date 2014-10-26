@@ -22,7 +22,6 @@
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
       </div>
-      {{profileToggle}}
       <div id="info-box" class="col-md-6" ng-show="infoBoxToggle">
         <div id="dash-location">
             {{currentGroup.groupName}}
@@ -32,13 +31,15 @@
           <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
           <span class="fa fa-edit"></span> Edit Profile
           </button>
+          <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
+           Learn Names <span class="fa fa-book"></span>
+          </button>
         </a>
         <div id="live-update">
         </div>
       </div>
     </div>
   </header>
-
   <div id="panel">    
     <div class="row">
       <div id="sidebar" class="col-md-2 menu">
