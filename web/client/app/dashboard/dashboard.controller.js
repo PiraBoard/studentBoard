@@ -1,21 +1,11 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DashboardCtrl', function ($scope, $http, Auth, AllUsers, Modal) {
-    $scope.groups = [
-      {
-        groupName:'Omnicron', 
-        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
-      },       
-      {
-        groupName:'CSI110', 
-        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
-      }, 
-      {
-        groupName:'Micronub',
-        members: [{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
-      }
-    ];
+  .controller('DashboardCtrl', function ($scope, $http, Auth, Modal) {
+    $scope.groups = [];
+
+    //When groups are added, they are also added here with their $scope.groups index
+    $scope.groupIndexFromName = {}
 
     $scope.numLead = 0;
     $scope.numGroups = $scope.groups.length;
@@ -23,13 +13,12 @@ angular.module('piraBoardApp')
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.allUsers = AllUsers.query();
     $scope.currentGroup = {}; // currently selected group
-    //When groups are added, they are also added here with their $scope.groups index
-    $scope.groupIndexFromName = {};
 
 
     $scope.createGroup = function (name, callback) {
+      // alert(name);
+      console.log('creating a group');
 
       // make group in database and add group to list on success
       $scope.groups.push( {groupName: name, members: []} );
@@ -80,7 +69,6 @@ angular.module('piraBoardApp')
 
     $scope.setGroupMembers = function(groupName, members){
       var index = $scope.groupIndexFromName[groupName];
-      console.log('groupIndexFromName', $scope.groupIndexFromName)
       $scope.groups[index].members = members; 
     };
 
@@ -128,9 +116,10 @@ angular.module('piraBoardApp')
         console.log(err);
       });
     };
-    $scope.updateGroupsFromServer();
-
+    
     $scope.initPiraBoard = function (data) {
       return Modal.app(data);
     }
+
+    $scope.updateGroupsFromServer();
   });
