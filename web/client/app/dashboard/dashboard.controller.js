@@ -5,15 +5,18 @@ angular.module('piraBoardApp')
     $scope.groups = [
       {
         groupName:'Omnicron', 
-        members: []//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        members: [],//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        invitations: []
       },       
       {
         groupName:'CSI110', 
-        members: []//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        members: [],//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        invitations: []
       }, 
       {
         groupName:'Micronub',
-        members: []//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        members: [],//[{name:'Tony Chong', email: 'brokenhearted@nolove.com',role: 'user'}, {name:'Tony Tiger', email:'wheat@bloodsugar.com',role: 'user'}, {name: 'John Cheech', email: 'smokesthings@420.com', role: 'admin'}]
+        invitations: []
       }
     ];
 
@@ -43,6 +46,19 @@ angular.module('piraBoardApp')
     $scope.setGroupMembers = function(groupName, members){
       var index = $scope.groupIndexFromName[groupName];
       $scope.groups[index].members = members; 
+    };
+
+    $scope.addGroupInvitations = function(groupName, members){
+      var index = $scope.groupIndexFromName[groupName];
+
+      for(var i=0; i<members.length; i++){
+        $scope.groups[index].invitations.push(members[i]); 
+      }
+    };
+
+    $scope.setGroupInvitations = function(groupName, members){
+      var index = $scope.groupIndexFromName[groupName];
+      $scope.groups[index].invitations = members; 
     };
 
     $scope.getGroup = function(index) {

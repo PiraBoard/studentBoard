@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: 'andrewjteich@gmail.com', //*** NEED TO CHANGE THIS ***
-        pass: '' // *** NEED TO HIDE THIS!!!!!!!!!!!!!!!!!!! ***
+        pass: 'uzacadtodacnrkoz' // *** NEED TO HIDE THIS!!!!!!!!!!!!!!!!!!! ***
     }
 });
 
@@ -34,10 +34,26 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
+  //make sure they have a password, 
+  // if not create a temporary one for them
+  var newInvitation = false;
+  if(!req.body.password){
+    req.body.password = 'password';
+    req.body.active = false;
+    newInvitation = true;
+  }
+
   createUser(req.body, function(err, user) {
     if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+    if(!newInvitation){
+      console.log('what is happening?!')
+      var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
+      res.json({ token: token });
+    } else {
+      res.json('Added new user for invitation');
+      //send invitation email here
+      sendInvitation(user);
+    }
   });
 };
 
@@ -70,7 +86,7 @@ var createUser = function(userData, callback){
 
       newUser.save(function(err, createdUser){
         callback(err, createdUser);
-        sendInvitation(createdUser._id);
+        // sendInvitation(createdUser);
       });
     }
   });
@@ -118,19 +134,19 @@ exports.show = function (req, res, next) {
  * Send Invite Email
  */
 
-var sendInvitation = function(userId){
+var sendInvitation = function(user){
   //generate unique url for user's initial login
-  var uniqueUrl = 'localhost:9000/invitation/' + _generateAuthString(userId);
+  console.log('sending invitation to user id: ', user._id);
+  var uniqueUrl = 'localhost:9000/invitation/' + _generateAuthString(user._id);
+  console.log('url: ', uniqueUrl);
 
   // setup e-mail data with unicode symbols
   var mailOptions = {
       from: 'Master Pira <noreply@piraboard.com>',
-      to: 'andrewjteich@gmail.com, andrewteich@me.com', // list of receivers - *** change to user.email ***
-      subject: 'Hello', // Subject line
+      to: user.email,
+      subject: 'Welcome to PiraBoard!', // Subject line
       text: 'Copy and paste this link into your web browser to join: ' + uniqueUrl,
-      html: '<a href="' + uniqueUrl + '">Click Here to Join!</a>'
-      // text: 'Username: ' + '',
-      // html: ''
+      html: 'Hi ' + user.name + ',<br><br><a href="' + uniqueUrl + '">Click Here to Join!</a><br><br><p>Sincerely,<br>The PiraBoard Team</p>'
   };
 
   // send mail with defined transport object
@@ -143,19 +159,20 @@ var sendInvitation = function(userId){
   });
 };
 
-exports.sendInvite = function (req, res, next) {
-  console.log('inside send invite Express.js');
-  var userId = req.params.id;
-  sendInvitation(userId);
+/* DEPRECATED */
+// exports.sendInvite = function (req, res, next) {
+//   console.log('inside send invite Express.js');
+//   var userId = req.params.id;
+//   sendInvitation(userId);
 
-  //User.findById(userId, function (err, user) {
-    // if (err) return next(err);
-    // if (!user) return res.send(401);
+//   //User.findById(userId, function (err, user) {
+//     // if (err) return next(err);
+//     // if (!user) return res.send(401);
 
     
-    res.send(200);
-  //});
-};
+//     res.send(200);
+//   //});
+// };
 
 /**
   * Login Using Email Invitation
@@ -172,7 +189,7 @@ exports.loginWithInvitation = function (req, res, next) {
   // res.json('kill for testing, fix later');
 
   //User.findById(userId, function (err, user) {
-    User.find({}, function (err, user){
+  User.findById(userId, function (err, user){
     console.log('Error: ', err, ' User: ', user);
     
     //*** not finding a user... ***
@@ -180,9 +197,12 @@ exports.loginWithInvitation = function (req, res, next) {
     if (err) return next(err);
     if (!user) return res.send(401);
 
+    // var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
+    // res.json({ token: token });
+    res.json(user);
     //Found a matching user!
     //Send to some create a user page in Angular
-    res.json(user.profile);
+    // res.json(user);
   });
 };
 
@@ -190,9 +210,7 @@ exports.loginWithInvitation = function (req, res, next) {
   * Create a string of parameters to use in invitation emails 
   */
 var _generateAuthString = function(userId){
-  //test
-  // userId = 'WOW_IT_WORKED!';
-  //end test
+  userId += ''; //stringify
 
   //get random string to instert userId parts into
   var authString = _randomString(userId.length*6);
@@ -227,7 +245,9 @@ var _randomString = function(length){
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for(var i=0; i<length; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
 
   return text;
 };
@@ -254,6 +274,7 @@ exports.changePassword = function(req, res, next) {
   User.findById(userId, function (err, user) {
     if(user.authenticate(oldPass)) {
       user.password = newPass;
+      user.active = true;
       user.save(function(err) {
         if (err) return validationError(res, err);
         res.send(200);
@@ -295,10 +316,30 @@ exports.updateProfile = function(req, res, next) {
   */
 exports.getUsersOfGroup = function(req, res, next){
   var group = req.params.group;
-  console.log('getUsersOfGroup: ', group);
   User.find( { group:group }, '-salt -hashedPassword', function (err, users) {
-    console.log('error: ', err);
-    console.log('got users from group: ', users);
+    if(err){
+      console.log('server - user.controller - getUsersOfGroup - ', err);
+    }
+    res.json(users);
+  });
+};
+
+exports.getActiveUsersOfGroup = function(req, res, next){
+  var group = req.params.group;
+  User.find( { group:group, active:true }, '-salt -hashedPassword', function (err, users) {
+    if(err){
+      console.log('server - user.controller - getActiveUsersOfGroup - ', err);
+    }
+    res.json(users);
+  });
+};
+
+exports.getInvitedUsersOfGroup = function(req, res, next){
+  var group = req.params.group;
+  User.find( { group:group, active:false }, '-salt -hashedPassword', function (err, users) {
+    if(err){
+      console.log('server - user.controller - getInvitedUsersOfGroup - ', err);
+    }
     res.json(users);
   });
 };

@@ -17,6 +17,7 @@ angular.module('piraBoardApp')
        * @return {Promise}
        */
       login: function(user, callback) {
+        console.log('auth login, ', user)
         var cb = callback || angular.noop;
         var deferred = $q.defer();
 
@@ -38,6 +39,15 @@ angular.module('piraBoardApp')
 
         return deferred.promise;
       },
+
+      // loginWithToken: function(data, callback){
+      //   var cb = callback || angular.noop;
+      //   var deferred = $q.defer();
+      //   $cookieStore.put('token', data.token);
+      //   currentUser = User.get();
+      //   deferred.resolve(data);
+      //   return cb();
+      // },
 
       /**
        * Delete access token and user info
@@ -66,6 +76,7 @@ angular.module('piraBoardApp')
             return cb(user);
           },
           function(err) {
+            console.log(err);
             this.logout();
             return cb(err);
           }.bind(this)).$promise;

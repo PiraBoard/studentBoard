@@ -34,7 +34,7 @@ angular.module('piraBoardApp', [
           console.log('work around me: ', response);
 
           // console.log(response.config.url.substring(0, 22));
-          if(response.config.url.substring(0, 22) !== "/api/users/invitation/"){
+          if(response.config.url.substring(0, 22) !== "/invitation/"){
             $location.path('/login');
             // remove any stale tokens
             $cookieStore.remove('token');

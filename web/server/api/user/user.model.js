@@ -19,6 +19,7 @@ var UserSchema = new Schema({
   twitter: {},
   google: {},
   github: {},
+  active: false,
 
   //ADDED PROPERTIES TO USER MODEL SCHEMA
 

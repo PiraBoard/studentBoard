@@ -17,10 +17,14 @@ router.put('/:id/update', auth.isAuthenticated(), controller.updateProfile);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 
-router.put('/:id/invite', auth.hasRole('admin'), controller.sendInvite);
+//DEPRECATED
+// router.put('/:id/invite', auth.hasRole('admin'), controller.sendInvite);
+
 router.get('/loginWithInvitation/:authString', controller.loginWithInvitation);
 router.post('/createManyUsers', controller.createManyUsers);
 
 router.get('/getUsersOfGroup/:group', auth.isAuthenticated(), controller.getUsersOfGroup);
+router.get('/getActiveUsersOfGroup/:group', auth.isAuthenticated(), controller.getActiveUsersOfGroup);
+router.get('/getInvitedUsersOfGroup/:group', auth.isAuthenticated(), controller.getInvitedUsersOfGroup);
 
 module.exports = router;
