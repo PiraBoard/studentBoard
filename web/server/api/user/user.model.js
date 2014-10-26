@@ -20,9 +20,6 @@ var UserSchema = new Schema({
   google: {},
   github: {},
   active: false,
-
-  //ADDED PROPERTIES TO USER MODEL SCHEMA
-
   location: {type: String, default: "San Francisco, CA"},
   isAdmin: {type: Boolean, default: false},
   group: {type: Array, default: ['Default Group']},
@@ -49,7 +46,7 @@ UserSchema
   UserSchema
   .virtual('update')
   .set(function(profile) {
-    console.log('THE FINAL STEP', profile);
+    console.log('Profile Updated', profile);
     this.name = name;
     this.email = email;
     this.phonenumber = phonenumber;
@@ -58,8 +55,7 @@ UserSchema
     this.photo = photo;
   })
   .get(function() {
-
-    return this._password;
+    
   });
 
 // Public profile information
