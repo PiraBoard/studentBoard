@@ -7,7 +7,7 @@ var auth = require('../../auth/auth.service');
 
 var router = express.Router();
 
-//Removed Admin Check for Get Requests
+//Removed Admin Check for Root '/' Get Requests
 // router.get('/', auth.hasRole('admin'), controller.index);
 router.get('/', controller.index);
 router.delete('/:id', auth.hasRole('admin'), controller.destroy);

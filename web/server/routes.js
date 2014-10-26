@@ -10,12 +10,6 @@ module.exports = function(app) {
 
   // Insert routes below
 
-
-  
-  // Uncommenting the next line breaks everything
-  // Need to figure out how to add this route
-
-  // app.use('/api/groups', require('./api/group'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
 
