@@ -6,7 +6,13 @@ angular.module('piraBoardApp')
   console.log('initialized', $scope);
   $scope.onFileSelect = function($files) {
     console.log('selected files', $files);
+    var currentGroup = $scope.groupName;
 
+    console.log(currentGroup);
+    if(!currentGroup){
+      alert('Please select a group to add people to.');
+      return;
+    }
     for(var i=0; i<$files.length; i++){
       var file = $files[i];
 
@@ -18,6 +24,8 @@ angular.module('piraBoardApp')
 
           //stringify the results for transport
           for(var k=0; k<results.data.length; k++){
+            //append group to each user uploaded
+            results.data[k].group = currentGroup;
             results.data[k] = JSON.stringify(results.data[k]);
           }
 
