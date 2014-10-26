@@ -1,11 +1,17 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .factory('User', function ($resource) {
-    return $resource('/api/users/:id/:controller', {
-      id: '@_id'
+.factory('User', function ($resource) {
+  return $resource('/api/users/:id/:controller', {
+    id: '@_id'
+  },
+  {
+    changePassword: {
+      method: 'PUT',
+      params: {
+        controller:'password'
+      }
     },
-    {
       changePassword: {
         method: 'PUT',
         params: {
@@ -25,5 +31,6 @@ angular.module('piraBoardApp')
           controller:'invite'
         }
       }
-	  });
+    }
   });
+})

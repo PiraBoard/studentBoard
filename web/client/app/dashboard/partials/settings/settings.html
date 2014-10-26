@@ -1,25 +1,25 @@
 <div id='settings'>
-
+ALL USERS :
+{{allUsers}}
   <form class="form" name="form" ng-submit="save(form)" novalidate>
-
     <div class="form-group">
-      <label>Account Information</label>
-
-      <input type="text" class="form-control" placeholder="Name"></input>
+      <label>Personal Information</label>
+      <div id="settings-name">
+        <span>Name </span>
+        <input type="text" class="form-control" placeholder="Name" value="{{user.name}}" />
+      </div>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Email"></input>
+    <div id="settings-email">
+      <span>Email </span>
+      <input type="text" class="form-control" placeholder="Email" value="{{user.email}}" />
+    </div>
     </div>
 
     <div>
       <button class="btn btn-success btn-sm" type="submit">
-        Save
+      Update
       </button>
-      <a href="/">
-        <button class="btn btn-sm">
-          Cancel
-        </button>
-      </a>
       <h5 ng-show="savedSuccessfully">
         Information Updated Successfully
       </h5>

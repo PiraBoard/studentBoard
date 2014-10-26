@@ -22,13 +22,17 @@
           <span class="glyphicon glyphicon-download"></span> Download App
         </button>
       </div>
-
       <div id="info-box" class="col-md-6">
         <div id="dash-location">
-          My Groups
+            {{currentGroup.groupName}}
         </div>
+        <div>{{currentGroup.members.length}} members</div>
+        <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
+          <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
+          <span class="fa fa-edit"></span> Edit Profile
+          </button>
+        </a>
         <div id="live-update">
-          Group added.
         </div>
       </div>
 
@@ -37,8 +41,8 @@
   <div id="panel">    
     <div class="row">
       <div id="sidebar" class="col-md-2 menu">
-        <ul>
-          <li class="groups">Groups 
+        <ul id="groups">
+          <li id="group-label">Groups 
             <span class="fa fa-plus add-group" ng-click="addGroupToggle = !addGroupToggle"></span>
           </li>
           <ul>
@@ -52,12 +56,11 @@
           </ul>
         </ul>
 
+        <form role="form" ng-show="addGroupToggle" ng-submit="createGroup(groupName)">
+          <input type='input' id="add-group-input" class="form-control" placeholder="Create a new group" ng-model="groupName" />
+        </form>
 
-  <form role="form" ng-show="addGroupToggle" ng-submit="createGroup(groupName)">
-    <input type='input' id="add-group-input" class="form-control" placeholder="Name of group to join" ng-model="groupName" />
-  </form>
-
-      </div>
+    </div>
 
       <div class="col-md-10">
         <div ui-view>
