@@ -81,8 +81,10 @@ angular.module('piraBoardApp')
       //   members: [],
       //   invitations: []
       // };
-      $scope.numberLead++;
-      $scope.numGroups++;
+      $scope.usersGroups.push(name);
+      $scope.numberGroups++;
+      // $scope.numberLead++;
+      // $scope.numGroups++;
     };
 
     $scope.addGroupMembers = function(groupName, members){
