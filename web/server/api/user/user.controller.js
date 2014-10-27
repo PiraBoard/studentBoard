@@ -292,6 +292,14 @@ exports.updateProfile = function(req, res, next) {
   var userId = req.user._id;
   var profile = req.body.profile;
   // next, parse the profile information
+  _updateUser(userId, profile, function(){
+    res.send(200);
+  }, function(){
+    res.send(403);
+  });
+};
+
+var _updateUser = function(userId, profile, success, error){
   User.findById(userId, function (err, user) {
     if (user) {
       user.name = String(profile.name) || user.name;
@@ -301,13 +309,14 @@ exports.updateProfile = function(req, res, next) {
       user.photo = String(profile.photo) || user.photo;
       user.bio = String(profile.bio) || user.bio;
       user.isAdmin = Boolean(profile.isAdmin) || user.isAdmin;
+      user.group = Array(profile.group) || user.group;
 
       user.save(function(err) {
         if (err) return validationError(res, err);
-        res.send(200);
+        success();
       });
     } else {
-      res.send(403);
+      error();
     }
   });
 };
@@ -361,12 +370,23 @@ exports.getAllUserGroups = function(req, res, next){
   */
 exports.createGroup = function(req, res){
   var group = req.params.group;
-  createUser({name:'Admin', group:group, password:'admin'}, function(err, user){
-    if(err){
-      console.log('error creating group - ', err);
-    }
-    res.json(200, user.group);
+  var user  = req.body.user;
+  user.isAdmin.group = true;
+  user.group.push(group);
+
+  _updateUser(user._id, user, function(){
+    res.send(200, user.group);
+  }, function(){
+    res.send(403);
+    console.log('error creating group - ', err);
   });
+
+  // createUser({name:user.name, group:group, isAdmin:{group:true}, password:'admin'}, function(err, user){
+  //   if(err){
+  //     console.log('error creating group - ', err);
+  //   }
+  //   res.json(200, user.group);
+  // });
 };
 
 /**
