@@ -308,7 +308,7 @@ var _updateUser = function(userId, profile, success, error){
       user.location = String(profile.location) || user.location;
       user.photo = String(profile.photo) || user.photo;
       user.bio = String(profile.bio) || user.bio;
-      user.isAdmin = Boolean(profile.isAdmin) || user.isAdmin;
+      user.isAdmin = profile.isAdmin || user.isAdmin;
       user.group = profile.group || user.group;
 
       user.save(function(err) {
