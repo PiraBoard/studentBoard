@@ -20,6 +20,7 @@ angular.module('piraBoardApp')
 
     // inits some important properties
     User.get().$promise.then( function (result) {
+      console.log(result);
       $scope.numberGroups = result.group.length;
       $scope.usersGroups = result.group;
       return result;
@@ -57,32 +58,27 @@ angular.module('piraBoardApp')
       // var group = new Group.create();
       // group.name = name;
       // Group.create.save({name:group}, function () {});
-      // var user = User.get();
-      // var groups = $http.get('/api/users/userGroups');
+      var user = User.get();
+      var groups = $http.get('/api/users/userGroups');
 
-      // $q.all([user,groups]).then(function (result) {
-      //   console.log('result',result);
-      // })
-      if($scope.usersGroups.indexOf(name) < 0) {
-      // make group in database and add group to list on success
-      $scope.numberLead++;
-      User.get().$promise.then(function (obj) {
-        console('obj', obj)
-        $http.post('/api/users/userGroup/' + name, {user: obj})
-        .success(function(data) {
-
+      $q.all([user,groups]).then(function (result) {
+        console.log(result);
+        var user = result[0];
+        var groupData = result[1].data;
+        if (groupData.indexOf(name) < 0) {
+          
           $scope.groupName = '';
           $scope.addGroupToggle = false;
-
-          _addGroupToLocal(name);
-
-          if(callback){
-            console.log('callback')
-            callback($scope.numGroups);
-          }
-        })
+          $http.post('/api/users/userGroup/' + name, {user: user})
+          .success(function(data) {
+            $scope.numberLead++;
+            _addGroupToLocal(name);
+          });
+        } else {
+          $scope.groupName = '';
+          alert('Group name already exists!  Choose another name.');
+        }
       });
-    }
   };
 
     var _addGroupToLocal = function(name){
