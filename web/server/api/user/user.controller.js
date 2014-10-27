@@ -371,6 +371,7 @@ exports.getAllUserGroups = function(req, res, next){
 exports.createGroup = function(req, res){
   var group = req.params.group;
   var user  = req.body.user;
+  console.log(user ,user.isAdmin);
   user.isAdmin[group] = true;
   console.log(user.group);
   user.group.push(group);
