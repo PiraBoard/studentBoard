@@ -143,8 +143,9 @@ angular.module('piraBoardApp')
        *
        * @return {Boolean}
        */
-      isAdmin: function() {
-        return currentUser.role === 'admin' || currentUser.isAdmin;
+      isAdmin: function(group) {
+        console.log(currentUser.isAdmin[group])
+        return currentUser.role === 'admin' || currentUser.isAdmin[group];
       },
 
       /**
