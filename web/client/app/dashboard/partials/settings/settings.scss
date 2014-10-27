@@ -1,8 +1,15 @@
-#settings {
+#profile {
   padding: 10px 0;
 }
 
-#settings input {
+#profile input {
 display: inline-block;
   width: 30%;  
+}
+
+#profile .form-group {
+	width: 50%;
+}
+#profile label {
+	display:block;
 }
