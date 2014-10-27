@@ -300,6 +300,7 @@ exports.updateProfile = function(req, res, next) {
       user.location = String(profile.location) || user.location;
       user.photo = String(profile.photo) || user.photo;
       user.bio = String(profile.bio) || user.bio;
+      user.isAdmin = Boolean(profile.isAdmin) || user.isAdmin;
 
       user.save(function(err) {
         if (err) return validationError(res, err);

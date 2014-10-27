@@ -1,8 +1,5 @@
 <div ui-view ng-show="profileToggle"></div>
 <div id="group" ng-show="!profileToggle">
-  <h4>
-  {{currentGroup.name}}
-  </h4>
   
   <!-- FOR TESTING ONLY -->
   <!-- <button ng-click="getUsersOfGroup()">
@@ -22,9 +19,9 @@
         </button>
       </form>
 
-    <div ng-controller="BatchCtrl">
-      <h3 ng-show="isAdmin()">Add Users In Bulk</h3>
-      <button type="button" id="batch-upload" class="btn btn-default btn-sm" tooltip="Import a .csv file with an 'email' column and we'll take care of the invites for you" ng-show="isAdmin()" ng-file-select="onFileSelect($files)">
+    <div ng-show="isAdmin()" ng-controller="BatchCtrl">
+      <h3>Add Users In Bulk</h3>
+      <button type="button" id="batch-upload" class="btn btn-default btn-sm" tooltip="Import a .csv file with an 'email' column and we'll take care of the invites for you" ng-file-select="onFileSelect($files)">
         <span class="fa fa-upload"></span> Upload Users from CSV File
       </button>
     </div>
@@ -57,9 +54,9 @@
     </table>
   </div>
 
-  <h3 ng-show="currentGroup.members.length > 0">Active Users</h3>
+  <h3 ng-show="currentGroup.length > 0">Active Users</h3>
   <table class="table table-striped table-hover">
-    <thead ng-show="currentGroup.members.length > 0">
+    <thead ng-show="currentGroup.length > 0">
     <tr>
       <th ng-click="reverse=!reverse;order('name', reverse)" >Name</th>
       <th ng-click="reverse=!reverse;order('email', reverse)">Email</th>
@@ -68,7 +65,7 @@
     </tr>
     </thead>
     <tbody id="member-list">
-      <tr ng-repeat="member in currentGroup.members">
+      <tr ng-repeat="member in currentGroup">
         <td>
           {{member.name}}
         </td>
@@ -76,7 +73,7 @@
           {{member.email}}
         </td>        
         <td>
-          {{member.role}}
+          {{member.isAdmin ? "Leader" : "User"}}
         </td>        
         <td ng-show="true" class="delete" ng-click="delete({member: member.id})">
           <span class="fa fa-times"></span>
@@ -84,5 +81,4 @@
       </tr>
     </tbody>
   </table>
-
 </div>
