@@ -12,26 +12,26 @@
     <!-- </div> -->
     <!-- <div class="col-md-3">  -->
       <p class="greeting">
-        Hi, {{ getCurrentUser().name }} 
+        <h3>Hi, {{ getCurrentUser().name }} </h3>
       </p>
       <p>
         You belong to {{ numberGroups }} groups and lead {{ numberLead }} groups.
       </p>
-      <button type="button" class="btn btn-default btn-sm">
+     <!--  <button type="button" class="btn btn-default btn-sm">
         <span class="glyphicon glyphicon-download"></span> Download App
-      </button>
+      </button> -->
     <!-- </div> -->
-    <br>
-    <br>
+ <!--    <br>
+    <br> -->
     <div id="info-box" ng-show="infoBoxToggle">
       <div id="dash-location">
-        {{currentGroup.groupName}}
+        <h3>Group: {{currentGroup.groupName}}</h3>
       </div>
       <div>{{currentGroup.length}} members</div>
       <br>
       <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
-        <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
-          <div class="fa fa-edit"></div> Edit Profile
+        <button type="button" class="btn btn-default btn-sm" >
+          <div class="fa fa-edit"></div><a ui-sref="settings"> Edit Profile</a>
         </button>
         <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
          Learn Names <div class="fa fa-book"></div>
