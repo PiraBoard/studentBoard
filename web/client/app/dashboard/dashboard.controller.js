@@ -74,8 +74,7 @@ angular.module('piraBoardApp')
           alert('Group name already exists!  Choose another name.');
         }
       });
-    }
-  };
+    };
 
     var _addGroupToLocal = function(name){
       $scope.groupIndexFromName[name] = $scope.numGroups;
@@ -85,9 +84,9 @@ angular.module('piraBoardApp')
         members: [],
         invitations: []
       };
+      $scope.numGroups++;
       if($scope.userGroups && $scope.usersGroups.indexOf(name) === -1){
         $scope.usersGroups.push(name);
-        $scope.numGroups++;
       }
       // $scope.numberLead++;
     };
@@ -101,6 +100,8 @@ angular.module('piraBoardApp')
 
     $scope.setGroupMembers = function(groupName, members){
       var index = $scope.groupIndexFromName[groupName];
+      console.log(index, groups);
+
       $scope.groups[index].members = members; 
     };
 
