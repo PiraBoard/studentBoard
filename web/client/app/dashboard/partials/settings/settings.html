@@ -4,6 +4,13 @@
   <form class="form" name="form" ng-submit="save(form)" novalidate>
     <div class="form-group">
       <label>Personal Information</label>
+      <br>
+      <img id="imageView" width="150px" ng-src="{{user.photo}}"/>
+      <div class="form-group">
+      <br/>
+      <p style="float:left; margin-right:10px;">Upload New Image:</p><input type="file" id="imgInput"></input>
+    </div>
+      <br/>
       <div id="settings-name">
         <span>Name </span>
         <input type="text" class="form-control" placeholder="Name" value="{{user.name}}" />

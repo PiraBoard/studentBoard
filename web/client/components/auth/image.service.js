@@ -2,6 +2,7 @@
 
 angular.module('piraBoardApp')
 .factory('Image', function () {
+    console.log('image factory');
     // if (input.files && input.files[0]) {
     //   var reader = new FileReader();
     //   reader.onload = function (e) {

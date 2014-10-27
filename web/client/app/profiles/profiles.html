@@ -25,6 +25,7 @@
 
           <div ng-repeat="user in users | filter:filterby">
             <ul>
+              <li><img width="75px" src="{{user.photo}}"></li>
               <li> Name: {{user.name}} </li>
               <li> Group: {{user.group}} </li>
             </ul>

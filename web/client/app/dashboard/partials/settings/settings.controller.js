@@ -8,6 +8,26 @@ angular.module('piraBoardApp')
     $scope.oldPassword = invitationFactory.password;
     // $scope.allUsers = AllUsers.query();
 
+    $("#imgInput").change(function(){
+      console.log('file loaded for read');
+        readURL(this);
+    });
+
+    function readURL(input) {
+      console.log('reading file');
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+          $('#imageView').attr('src', e.target.result);
+          console.log(e.target.result);
+          $scope.user.photo = e.target.result;
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
     $scope.changePassword = function(form) {
       $scope.submitted = true;
       if(form.$valid) {
@@ -31,19 +51,30 @@ angular.module('piraBoardApp')
 
     $scope.save = function(form) {
       $scope.submitted = true;
+      console.log('save');
+      $scope.savedSuccessfully = true;
+
+      $http.put('/api/users/'+$scope.user._id+'/update', {profile:$scope.user}).
+        success(function(data) {
+          console.log('hopefully updated the database as expected')
+        }).
+        error(function(err) {
+          console.log('oh god, what happened this time');
+        }.bind(this));
 
       //Should save user changes,
       //not create a new user *** FIX *** once database is enabled
-      if(form.$valid) {
-        $scope.savedSuccessfully = true;
+    //   if(form.$valid) {
+    //     console.log('valid');
+    //     $scope.savedSuccessfully = true;
 
-        //Tells the user that the data was saved successfully
-        //Removes the message after a few seconds
+    //     //Tells the user that the data was saved successfully
+    //     //Removes the message after a few seconds
 
-        $timeout(function(){
-          $scope.savedSuccessfully=false;
-        }, 3000);
-      }
+    //   }
+      $timeout(function(){
+        $scope.savedSuccessfully=false;
+      }, 3000);
     };
   });
 
