@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DashboardCtrl', function ($scope, $http, Auth, Modal, User, Group, $timeout) {
+  .controller('DashboardCtrl', function ($scope, $http, $q, Auth, Modal, User, Group) {
     $scope.currentgroup = [];
     $scope.mygroups = [];
     $scope.numgroup = $scope.mygroups.length;
@@ -57,16 +57,20 @@ angular.module('piraBoardApp')
       // var group = new Group.create();
       // group.name = name;
       // Group.create.save({name:group}, function () {});
+      // var user = User.get();
+      // var groups = $http.get('/api/users/userGroups');
 
+      // $q.all([user,groups]).then(function (result) {
+      //   console.log('result',result);
+      // })
       if($scope.usersGroups.indexOf(name) < 0) {
       // make group in database and add group to list on success
-      console.log('hello there');
       $scope.numberLead++;
       User.get().$promise.then(function (obj) {
-        console.log(obj);
+        console('obj', obj)
         $http.post('/api/users/userGroup/' + name, {user: obj})
         .success(function(data) {
-          console.log('data posted', data);
+
           $scope.groupName = '';
           $scope.addGroupToggle = false;
 
