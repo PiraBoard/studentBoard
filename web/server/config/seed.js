@@ -37,36 +37,13 @@ User.find({}).remove(function() {
     email: 'test@test.com',
     password: 'test',
     group: 'Omnicron'
-  }, 
-  {
+  }); 
+  
+  User.create({
     provider: 'local',
     name: 'Testy',
     email: 'tdwqest@tedqst.com',
     password: 'test',
     group: 'Omnicron'
-  }, 
-  {
-    provider: 'local',
-    name: 'Testacool',
-    email: 'tqqwdest@test.com',
-    password: 'test',
-    group: 'Omnicron'
-  },  
-  {
-    provider: 'local',
-    name: ' perUser',
-    email: 'test@twefest.com',
-    password: 'test',
-    group: 'Omnicron'
-  }, 
-  {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
-      console.log('finished populating users');
-    }
-  );
+  }) 
 });
