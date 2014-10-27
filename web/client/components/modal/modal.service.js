@@ -92,7 +92,7 @@ angular.module('piraBoardApp')
           var appModal;
           appModal = openApp({
             modal: {
-              members: data.members,
+              members: data,
               title: data.groupName,
               count: 0
             }

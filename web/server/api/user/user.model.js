@@ -53,6 +53,7 @@ UserSchema
     this.location = location;
     this.bio = bio;
     this.photo = photo;
+    this.isAdmin = isAdmin;
   })
   .get(function() {
     
