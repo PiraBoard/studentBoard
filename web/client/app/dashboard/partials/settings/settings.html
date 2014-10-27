@@ -1,4 +1,4 @@
-<div id='settings'>
+<div id='profile' class="row">
 <!-- ALL USERS : -->
 <!-- {{allUsers}} -->
   <form class="form" name="form" ng-submit="save(form)" novalidate>
@@ -6,22 +6,32 @@
       <label>Personal Information</label>
       <br>
       <img id="imageView" width="150px" ng-src="{{user.photo}}"/>
-      <div class="form-group">
       <br/>
-      <p style="float:left; margin-right:10px;">Upload New Image:</p><input type="file" id="imgInput"></input>
+      <p style="float:left; margin-right:10px;">Upload New Image:</p>
+      <input type="file" id="imgInput"></input>
     </div>
       <br/>
-      <div id="settings-name">
-        <span>Name </span>
-        <input type="text" class="form-control" placeholder="Name" value="{{user.name}}" />
+      <div class="form-group">
+        <label for="fullName">Name </label>
+        <input type="text" class="form-control" placeholder="Name" ng-model="user.name">
       </div>
+    <div class="form-group">
+      <label for="email">Email </label>
+      <input type="text" class="form-control" placeholder="Email" ng-model="user.email" />
     </div>
     <div class="form-group">
-    <div id="settings-email">
-      <span>Email </span>
-      <input type="text" class="form-control" placeholder="Email" value="{{user.email}}" />
-    </div>
-    </div>
+        <label for="city">Phone Number</label>
+        <input type="input" class="form-control" id="input-phone" placeholder="Enter phone number" ng-model="user.phonenumber" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="input" class="form-control" id="input-location" placeholder="Enter location" ng-model="user.location" />
+      </div>
+      <div class="form-group">
+        <label for="city">Biography</label>
+        <textarea class="form-control" id="input-biography" ng-model="user.bio">
+        </textarea>
+      </div>
 
     <div>
       <button class="btn btn-success btn-sm" type="submit">
@@ -32,10 +42,11 @@
       </h5>
     </div>
   </form>
-  <div class="row">
-    <div class="col-sm-12">
-    </div>
-    <div class="col-sm-12">
+</div>
+
+
+  <div id='profile' class="row">
+    <div>
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
 
         <div class="form-group">

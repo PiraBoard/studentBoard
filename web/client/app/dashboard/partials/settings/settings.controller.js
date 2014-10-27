@@ -56,6 +56,7 @@ angular.module('piraBoardApp')
 
       $http.put('/api/users/'+$scope.user._id+'/update', {profile:$scope.user}).
         success(function(data) {
+          console.log($scope.user.name);
           console.log('hopefully updated the database as expected')
         }).
         error(function(err) {
