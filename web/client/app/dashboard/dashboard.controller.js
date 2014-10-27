@@ -5,6 +5,13 @@ angular.module('piraBoardApp')
     $scope.currentgroup = [];
     $scope.mygroups = [];
     $scope.numgroup = $scope.mygroups.length;
+    // inits some important properties
+    User.get().$promise.then( function (result) {
+      $scope.numberGroups = result.group.length;
+      $scope.usersGroups = result.group;
+      console.log($scope.usersGroups);
+      return result;
+    });
 
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groupIndexFromName = {}
@@ -18,13 +25,6 @@ angular.module('piraBoardApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.currentGroup = {}; // currently selected group
 
-    // inits some important properties
-    User.get().$promise.then( function (result) {
-      console.log(result);
-      $scope.numberGroups = result.group.length;
-      $scope.usersGroups = result.group;
-      return result;
-    });
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
@@ -71,7 +71,6 @@ angular.module('piraBoardApp')
           $scope.addGroupToggle = false;
           $http.post('/api/users/userGroup/' + name, {user: user})
           .success(function(data) {
-            $scope.numberLead++;
             _addGroupToLocal(name);
           });
         } else {
@@ -82,13 +81,14 @@ angular.module('piraBoardApp')
   };
 
     var _addGroupToLocal = function(name){
-      $scope.groupIndexFromName[name] = $scope.numGroups;
-      $scope.groups[$scope.numGroups] = 
-      {
-        groupName:name,
-        members: [],
-        invitations: []
-      };
+      // $scope.groupIndexFromName[name] = $scope.numGroups;
+      // $scope.groups[$scope.numGroups] = 
+      // {
+      //   groupName:name, 
+      //   members: [],
+      //   invitations: []
+      // };
+      $scope.numberLead++;
       $scope.numGroups++;
     };
 
