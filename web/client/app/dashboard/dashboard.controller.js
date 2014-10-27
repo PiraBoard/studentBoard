@@ -7,6 +7,7 @@ angular.module('piraBoardApp')
     $scope.numgroup = $scope.mygroups.length;
     // inits some important properties
     User.get().$promise.then( function (result) {
+      console.log('result', result)
       $scope.numberGroups = result.group.length;
       $scope.usersGroups = result.group;
       console.log($scope.usersGroups);
@@ -24,7 +25,6 @@ angular.module('piraBoardApp')
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.currentGroup = {}; // currently selected group
-
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
@@ -54,10 +54,6 @@ angular.module('piraBoardApp')
     };
 
     $scope.createGroup = function (name, callback) {
-      //Don't create groups that already exist
-      // var group = new Group.create();
-      // group.name = name;
-      // Group.create.save({name:group}, function () {});
       var user = User.get();
       var groups = $http.get('/api/users/userGroups');
 
