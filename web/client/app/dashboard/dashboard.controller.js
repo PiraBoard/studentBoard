@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DashboardCtrl', function ($scope, $http, Auth, Modal, User, Group) {
+  .controller('DashboardCtrl', function ($scope, $http, Auth, Modal, User, Group, $timeout) {
     $scope.currentgroup = [];
     $scope.mygroups = [];
     $scope.numgroup = $scope.mygroups.length;

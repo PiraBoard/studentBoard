@@ -309,7 +309,7 @@ var _updateUser = function(userId, profile, success, error){
       user.photo = String(profile.photo) || user.photo;
       user.bio = String(profile.bio) || user.bio;
       user.isAdmin = Boolean(profile.isAdmin) || user.isAdmin;
-      user.group = Array(profile.group) || user.group;
+      user.group = profile.group || user.group;
 
       user.save(function(err) {
         if (err) return validationError(res, err);
@@ -372,7 +372,9 @@ exports.createGroup = function(req, res){
   var group = req.params.group;
   var user  = req.body.user;
   user.isAdmin.group = true;
+  console.log(user.group);
   user.group.push(group);
+  console.log('group array: ', user.group);
 
   _updateUser(user._id, user, function(){
     res.send(200, user.group);
