@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('DashboardCtrl', function ($scope, $http, Auth, Modal, User, Group, $timeout) {
+  .controller('DashboardCtrl', function ($scope, $http, $q, Auth, Modal, User, Group) {
     $scope.currentgroup = [];
     $scope.mygroups = [];
     $scope.numgroup = $scope.mygroups.length;
+    // inits some important properties
+    User.get().$promise.then( function (result) {
+      console.log('result', result)
+      $scope.numberGroups = result.group.length;
+      $scope.usersGroups = result.group;
+      console.log($scope.usersGroups);
+      return result;
+    });
 
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groupIndexFromName = {}
@@ -17,13 +25,6 @@ angular.module('piraBoardApp')
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.currentGroup = {}; // currently selected group
-
-    // inits some important properties
-    User.get().$promise.then( function (result) {
-      $scope.numberGroups = result.group.length;
-      $scope.usersGroups = result.group;
-      return result;
-    });
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
@@ -53,42 +54,36 @@ angular.module('piraBoardApp')
     };
 
     $scope.createGroup = function (name, callback) {
-      //Don't create groups that already exist
-      // var group = new Group.create();
-      // group.name = name;
-      // Group.create.save({name:group}, function () {});
-
-      if($scope.usersGroups.indexOf(name) < 0) {
-      // make group in database and add group to list on success
-      console.log('hello there');
-      $scope.numberLead++;
-      User.get().$promise.then(function (obj) {
-        console.log(obj);
-        $http.post('/api/users/userGroup/' + name, {user: obj})
-        .success(function(data) {
-          console.log('data posted', data);
+      var user = User.get();
+      var groups = $http.get('/api/users/userGroups');
+      $q.all([user,groups]).then(function (result) {
+        console.log(result);
+        var user = result[0];
+        var groupData = result[1].data;
+        if (groupData.indexOf(name) < 0) {
+          
           $scope.groupName = '';
           $scope.addGroupToggle = false;
-
-          _addGroupToLocal(name);
-
-          if(callback){
-            console.log('callback')
-            callback($scope.numGroups);
-          }
-        })
+          $http.post('/api/users/userGroup/' + name, {user: user})
+          .success(function(data) {
+            _addGroupToLocal(name);
+          });
+        } else {
+          $scope.groupName = '';
+          alert('Group name already exists!  Choose another name.');
+        }
       });
-    }
   };
 
     var _addGroupToLocal = function(name){
-      $scope.groupIndexFromName[name] = $scope.numGroups;
-      $scope.groups[$scope.numGroups] = 
-      {
-        groupName:name,
-        members: [],
-        invitations: []
-      };
+      // $scope.groupIndexFromName[name] = $scope.numGroups;
+      // $scope.groups[$scope.numGroups] = 
+      // {
+      //   groupName:name, 
+      //   members: [],
+      //   invitations: []
+      // };
+      $scope.numberLead++;
       $scope.numGroups++;
     };
 
