@@ -85,7 +85,7 @@ angular.module('piraBoardApp')
       $scope.groupIndexFromName[name] = $scope.numGroups;
       $scope.groups[$scope.numGroups] = 
       {
-        groupName:name, 
+        groupName:name,
         members: [],
         invitations: []
       };
