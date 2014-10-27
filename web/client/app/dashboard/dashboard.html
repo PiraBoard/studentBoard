@@ -1,46 +1,47 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div id='dashboard'>  
-  <header class="hero-unit" id="banner">
-    <div class="row">
-      <div class="col-md-1">
-        <p>
-          <i class="fa fa-mobile fa-2x"></i>
-        </p>
-        <p>
-          <i class="fa fa-users fa-5x"></i>
-        </p>
+<header class="hero-unit" id="banner">
+  <div class="row">
+    <!-- <div class="col-md-1"> -->
+      <p>
+        <i class="fa fa-mobile fa-2x"></i>
+      </p>
+      <p>
+        <i class="fa fa-users fa-5x"></i>
+      </p>
+    <!-- </div> -->
+    <!-- <div class="col-md-3">  -->
+      <p class="greeting">
+        Hi, {{ getCurrentUser().name }} 
+      </p>
+      <p>
+        You belong to {{ numberGroups }} groups and lead {{ numberLead }} groups.
+      </p>
+      <button type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-download"></span> Download App
+      </button>
+    <!-- </div> -->
+    <div id="info-box" class="col-md-6" ng-show="infoBoxToggle">
+      <div id="dash-location">
+        {{currentGroup.groupName}}
       </div>
-      <div class="col-md-3"> 
-        <p class="greeting">
-          Hi, {{ getCurrentUser().name }} 
-        </p>
-        <p>
-          You belong to {{ numberGroups }} groups and lead {{ numberLead }} groups.
-        </p>
-        <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-download"></span> Download App
+      <div>{{currentGroup.length}} members</div>
+      <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
+        <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
+          <span class="fa fa-edit"></span> Edit Profile
         </button>
-      </div>
-      <div id="info-box" class="col-md-6" ng-show="infoBoxToggle">
-        <div id="dash-location">
-          {{currentGroup.groupName}}
-        </div>
-        <div>{{currentGroup.length}} members</div>
-        <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
-          <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
-            <span class="fa fa-edit"></span> Edit Profile
-          </button>
-          <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
-           Learn Names <span class="fa fa-book"></span>
-         </button>
-       </a>
-       <div id="live-update">
-       </div>
+        <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
+         Learn Names <span class="fa fa-book"></span>
+       </button>
+     </a>
+     <div id="live-update">
      </div>
    </div>
- </header>
+ </div>
+</header>
+<br>
 {{userGroups}}
+<div id='dashboard'>  
  <div id="panel">    
   <div class="row">
     <div id="sidebar" class="col-md-2 menu">
