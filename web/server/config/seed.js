@@ -36,7 +36,8 @@ User.find({}).remove(function() {
     name: 'jim',
     email: 'test@test.com',
     password: 'test',
-    group: 'Omnicron'
+    group: 'Omnicron',
+    active: true
   }); 
   
   User.create({

@@ -6,38 +6,6 @@ angular.module('piraBoardApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.users = User.query();
 
-    $scope.getActiveUsersOfGroup = function(){
-
-      $http.get('/api/users/getActiveUsersOfGroup/' +  $scope.groupName, {
-      }).
-      success(function(data) {
-        if(data.length !== $scope.users.length){
-          $scope.users = data;
-          $scope.setGroupMembers($scope.groupName, data);
-        }
-      }).
-      error(function(err) {
-        console.log('Error getting users from ' + $scope.groupName);
-        console.log(err);
-      }.bind(this));
-    };
-
-    $scope.getInvitedUsersOfGroup = function(){
-
-      $http.get('/api/users/getInvitedUsersOfGroup/' +  $scope.groupName, {
-      }).
-      success(function(data) {
-        if(data.length !== $scope.users.length){
-          $scope.users = data;
-          $scope.setGroupInvitations($scope.groupName, data);
-        }
-      }).
-      error(function(err) {
-        console.log('Error getting users from ' + $scope.groupName);
-        console.log(err);
-      }.bind(this));
-    };
-
     $scope.delete = function(user) {
       if ( confirm('Really remove ' + user.name + '?')) {
         User.remove({ id: user._id });
@@ -48,9 +16,6 @@ angular.module('piraBoardApp')
         });
       }
     };
-    
-    $scope.getActiveUsersOfGroup();
-    $scope.getInvitedUsersOfGroup();
 
     $scope.createUser = function(name, email){
       console.log('group create user');
@@ -74,7 +39,6 @@ angular.module('piraBoardApp')
         // var invited = angular.element('<tr><td>'+name+'</td><td>' + email +'</td><td colspan="2">Invitation Sent</td></tr>');
         // angular.element(header).appendTo('#invitation-list');
         // angular.element(invited).appendTo('#invitation-list');
-        $scope.getInvitedUsersOfGroup();
       }).
       error(function(err) {
         console.log('Error creating user');

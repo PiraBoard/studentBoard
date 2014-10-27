@@ -1,71 +1,46 @@
 <div ui-view ng-show="profileToggle"></div>
 <div id="group" ng-show="!profileToggle">
-  
-  <!-- FOR TESTING ONLY -->
-  <!-- <button ng-click="getUsersOfGroup()">
-    getAllUsersLoggedToConsole
-  </button> -->
-  <!-- FOR TESTING ONLY -->
-  <form ng-show="isAdmin()" ng-submit="inviteEmail(email)">
-    <!-- <input type='input' id="invite-email" class="form-control" placeholder="newmember@email.com" ng-model="email" /> -->
-  </form>
-  <div ng-controller="GroupCtrl">
-    <div id="invite">
-      <h3 ng-show="isAdmin()">Add Users Individually</h3>
-      <form ng-show="isAdmin()" ng-submit="createUser(name,email)">
-        <input type='input' id="invite-name" class="form-control" placeholder="New Member" ng-model="name" />
-        <input type='input' id="invite-email" class="form-control" placeholder="newmember@email.com" ng-model="email" />
-        <button type="submit" id="individual-upload" class="btn btn-default btn-sm" ng-show="isAdmin()">Create User
-        </button>
-      </form>
 
-    <div ng-show="isAdmin()" ng-controller="BatchCtrl">
-      <h3>Add Users In Bulk</h3>
-      <button type="button" id="batch-upload" class="btn btn-default btn-sm" tooltip="Import a .csv file with an 'email' column and we'll take care of the invites for you" ng-file-select="onFileSelect($files)">
-        <span class="fa fa-upload"></span> Upload Users from CSV File
-      </button>
-    </div>
 
-    <h3 ng-show="currentGroup.invitations.length > 0">Invitation Status</h3>
-    <table ng-show="currentGroup.invitations.length > 0" class="table table-striped table-hover">
-      <thead>
+  <h3 ng-show="currentGroup.invited.length > 0">Invitation Status</h3>
+  <table ng-show="currentGroup.invited.length > 0" class="table table-striped table-hover">
+    <thead>
       <tr>
         <th ng-click="reverse=!reverse;order('name', reverse)" >Name</th>
         <th ng-click="reverse=!reverse;order('email', reverse)">Email</th>
         <th ng-click="reverse=!reverse;order('role', reverse)">Status</th>
       </tr>
-      </thead>
-      <tbody id="invitation-list">
-        <tr ng-repeat="member in currentGroup.invitations">
-          <td>
-            {{member.name}}
-          </td>
-          <td>
-            {{member.email}}
-          </td>        
-          <td>
-            Invitation Sent
-          </td>        
-          <td ng-show="true" class="delete" ng-click="delete({member: member.id})">
-            <span class="fa fa-times"></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    </thead>
+    <tbody id="invitation-list">
+      <tr ng-repeat="member in currentGroup.invited">
+        <td>
+          {{member.name}}
+        </td>
+        <td>
+          {{member.email}}
+        </td>        
+        <td>
+          Invitation Sent
+        </td>        
+        <td ng-show="true" class="delete" ng-click="delete({member: member.id})">
+          <span class="fa fa-times"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h3 ng-show="currentGroup.length > 0">Active Users</h3>
+  <h3 ng-show="currentGroup.active.length > 0">Active Users</h3>
   <table class="table table-striped table-hover">
-    <thead ng-show="currentGroup.length > 0">
-    <tr>
-      <th ng-click="reverse=!reverse;order('name', reverse)" >Name</th>
-      <th ng-click="reverse=!reverse;order('email', reverse)">Email</th>
-      <th ng-click="reverse=!reverse;order('role', reverse)">Role</th>
-      <th>Delete</th>
-    </tr>
+    <thead ng-show="currentGroup.active.length > 0">
+      <tr>
+        <th ng-click="reverse=!reverse;order('name', reverse)" >Name</th>
+        <th ng-click="reverse=!reverse;order('email', reverse)">Email</th>
+        <th ng-click="reverse=!reverse;order('role', reverse)">Role</th>
+        <th>Delete</th>
+      </tr>
     </thead>
     <tbody id="member-list">
-      <tr ng-repeat="member in currentGroup">
+      <tr ng-repeat="member in currentGroup.active">
         <td>
           {{member.name}}
         </td>
@@ -81,4 +56,22 @@
       </tr>
     </tbody>
   </table>
+
+  <div ng-controller="GroupCtrl" ng-show="isAdmin()">
+    <div id="invite">
+      <h3>Add Users Individually</h3>
+      <form ng-submit="createUser(name,email)">
+        <input type='input' id="invite-name" class="form-control" placeholder="New Member" ng-model="name" />
+        <input type='input' id="invite-email" class="form-control" placeholder="newmember@email.com" ng-model="email" />
+        <button type="submit" id="individual-upload" class="btn btn-default btn-sm">Create User
+        </button>
+      </form>
+
+      <div ng-controller="BatchCtrl">
+        <button type="button" id="batch-upload" class="btn btn-default btn-sm" tooltip="Import a .csv file with an 'email' column and we'll take care of the invites for you" ng-file-select="onFileSelect($files)">
+          <span class="fa fa-upload"></span> Upload Users from CSV File
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

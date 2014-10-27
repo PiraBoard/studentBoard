@@ -7,8 +7,15 @@ angular.module('piraBoardApp')
       var endpoint = $resource('/api/users/getUsersOfGroup/:name', {name: ofGroup});
       return endpoint.query();
     },
-    getActiveMembers: function (group) {},
-    create: function () {
+    getActiveMembers: function (ofGroup) {
+      var endpoint = $resource('/api/users/getActiveUsersOfGroup/:name', {name: ofGroup});
+      return endpoint.query();
+    },
+    getInvitedMembers: function (ofGroup) {
+      var endpoint = ('/api/users/getInvitedUsersOfGroup/:name', {name: ofGroup});
+      return endpoint.query();
+    },
+    create: function (group) {
       return $resource('/api/users/userGroup/:name');
     },
   }
