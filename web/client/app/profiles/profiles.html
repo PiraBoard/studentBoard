@@ -17,14 +17,14 @@
 <p>
 <div class='center'>
   <div class='container'>  
-    <div class="col-md-11">
+    <div>
             Filter by Name: <input ng-model = 'filterby.name'>
             Filter by Group: <input ng-model = 'filterby.group'>
 
             <p>
 
             <div ng-repeat="user in users | filter:filterby" style='display:inline-block'>
-              <ul>
+              <ul style="list-style-type:none; padding-left:0; margin: 10px;">
                 <li><img width="75px" src="{{user.photo}}"></li>
                 <li> Name: {{user.name}} </li>
                 <li> Group: 
