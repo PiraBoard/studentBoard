@@ -21,17 +21,20 @@
         <span class="glyphicon glyphicon-download"></span> Download App
       </button>
     <!-- </div> -->
-    <div id="info-box" class="col-md-6" ng-show="infoBoxToggle">
+    <br>
+    <br>
+    <div id="info-box" ng-show="infoBoxToggle">
       <div id="dash-location">
         {{currentGroup.groupName}}
       </div>
       <div>{{currentGroup.length}} members</div>
+      <br>
       <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
         <button type="button" class="btn btn-default btn-sm" ng-click="profileToggle = true">
-          <span class="fa fa-edit"></span> Edit Profile
+          <div class="fa fa-edit"></div> Edit Profile
         </button>
         <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
-         Learn Names <span class="fa fa-book"></span>
+         Learn Names <div class="fa fa-book"></div>
        </button>
      </a>
      <div id="live-update">

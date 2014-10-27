@@ -15,25 +15,27 @@
   </header>
 
 <p>
-<div class='container'>  
-  <div class="col-md-11">
-          Filter by Name: <input ng-model = 'filterby.name'> 
-          Filter by Group: <input ng-model = 'filterby.group'>
+<div class='center'>
+  <div class='container'>  
+    <div class="col-md-11">
+            Filter by Name: <input ng-model = 'filterby.name'>
+            Filter by Group: <input ng-model = 'filterby.group'>
 
-          <p>
-
-          <div ng-repeat="user in users | filter:filterby">
-            <ul>
-              <li><img width="75px" src="{{user.photo}}"></li>
-              <li> Name: {{user.name}} </li>
-              <li> Group: 
-              <span ng-repeat="group in user.group | filter:filterby">
-                {{group}}<span ng-hide="$index === user.group.length-1">,</span>
-              </span>
-              </li>
-            </ul>
             <p>
-        </div>
+
+            <div ng-repeat="user in users | filter:filterby" style='display:inline-block'>
+              <ul>
+                <li><img width="75px" src="{{user.photo}}"></li>
+                <li> Name: {{user.name}} </li>
+                <li> Group: 
+                <span ng-repeat="group in user.group | filter:filterby">
+                  {{group}}<span ng-hide="$index === user.group.length-1">,</span>
+                </span>
+                </li>
+              </ul>
+              <p>
+          </div>
+    </div>
   </div>
 </div>
 
