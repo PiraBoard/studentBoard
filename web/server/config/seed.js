@@ -41,9 +41,265 @@ User.find({}).remove(function() {
   
   User.create({
     provider: 'local',
-    name: 'Testy',
+    name: 'Alex Jeng',
     email: 'tdwqest@tedqst.com',
     password: 'test',
     group: 'Omnicron'
+  })
+
+  User.create({
+    provider: 'local',
+    name: 'Rishi Goomar',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  })  
+
+  User.create({
+    provider: 'local',
+    name: 'Ralph Samuel',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
   }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Adam Back',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Kevin Meurer',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Moxi Zhou',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Jamon Douglas',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Sean Rose',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Jose Joaquin Merino',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Justin Pinili',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Peter Shatara',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Supriya',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  })  
+
+  User.create({
+    provider: 'local',
+    name: 'Will Burgo',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Rich',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Kia',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Jeff',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Oleg',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Urvashi',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Liam',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Derek',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+  
+  User.create({
+    provider: 'local',
+    name: 'Tom',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Carl',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  })  
+
+  User.create({
+    provider: 'local',
+    name: 'Will',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Jason',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Andrew',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Mike Horan',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Michael Pinter',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Jameson',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Greg',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  })  
+
+  User.create({
+    provider: 'local',
+    name: 'Ryo',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+  
+  User.create({
+    provider: 'local',
+    name: 'Caly',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Josh',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }) 
+
+  User.create({
+    provider: 'local',
+    name: 'Allen',
+    email: 'tdwqest@tedqst.com',
+    password: 'test',
+    group: 'HR18'
+  }); 
 });
