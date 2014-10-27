@@ -18,17 +18,17 @@
 <div class='center'>
   <div class='container'>  
     <div>
-            Filter by Name: <input ng-model = 'filterby.name'>
-            Filter by Group: <input ng-model = 'filterby.group'>
+            Filter by Name: <input ng-model = 'nameSearch'>
+            Filter by Group: <input ng-model = 'groupSearch'>
 
             <p>
 
-            <div ng-repeat="user in users | filter:filterby" style='display:inline-block'>
+            <div ng-repeat="user in users | groupFilter:groupSearch | nameFilter:nameSearch" style='display:inline-block'>
               <ul style="list-style-type:none; padding-left:0; margin: 10px;">
                 <li><img width="75px" src="{{user.photo}}"></li>
                 <li> Name: {{user.name}} </li>
                 <li> Group: 
-                <span ng-repeat="group in user.group | filter:filterby">
+                <span ng-repeat="group in user.group">
                   {{group}}<span ng-hide="$index === user.group.length-1">,</span>
                 </span>
                 </li>
