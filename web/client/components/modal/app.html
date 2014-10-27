@@ -4,6 +4,8 @@
     <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
   </div>
   <div class="modal-body">
+
+  <img width="100px" src="{{modal.members[modal.count].photo}}"/>
   <p>
     {{modal.members[modal.count].name}}
   </p>
