@@ -56,7 +56,6 @@ angular.module('piraBoardApp')
     $scope.createGroup = function (name, callback) {
       var user = User.get();
       var groups = $http.get('/api/users/userGroups');
-
       $q.all([user,groups]).then(function (result) {
         console.log(result);
         var user = result[0];
