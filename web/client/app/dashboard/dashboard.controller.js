@@ -2,6 +2,7 @@
 
 angular.module('piraBoardApp')
 .controller('DashboardCtrl', function ($scope, $http, $q, Auth, Modal, User, Group) {
+  $scope.user = User.get();
   $scope.currentgroup = [];
   $scope.mygroups = [];
   $scope.numgroup = $scope.mygroups.length;
