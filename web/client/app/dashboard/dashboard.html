@@ -22,9 +22,9 @@
     <br> -->
     <div id="info-box" ng-show="infoBoxToggle">
       <div id="dash-location">
-        <h3>Group: {{currentGroup.groupName}}</h3>
+        <h3>{{currentGroup.groupName}}</h3>
       </div>
-      <div>{{currentGroup.length}} members</div>
+      <div>{{currentGroup.active.length}} members</div>
       <br>
       <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
         <button type="button" class="btn btn-default btn-sm" >
@@ -40,10 +40,7 @@
  </div>
 </header>
 <br>
-<!-- {{gg}} -->
-<br>
-<br>
-{{profileToggle}}
+{{currentGroup}}
 <div id='dashboard'>  
  </header>
  <div id="panel">    
@@ -68,7 +65,7 @@
         <input type='input' id="add-group-input" class="form-control" placeholder="Create a new group" ng-model="groupName" />
         </form>
     </div>
-    <div class="col-md-10">
+    <div id="bigpanel" class="col-md-10">
       <div ui-view>
         <i class="fa fa-tachometer fa-5x"></i>
       </div>

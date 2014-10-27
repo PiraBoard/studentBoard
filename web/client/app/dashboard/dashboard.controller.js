@@ -57,7 +57,7 @@ angular.module('piraBoardApp')
           master.push(member);
         }
         // sets group name
-        master.groupName = $scope.usersGroups[index];
+        $scope.currentGroup.groupName = $scope.usersGroups[index];
         // sets currentGroup to contain all group information
         $scope.currentGroup.active = master;
       });      
