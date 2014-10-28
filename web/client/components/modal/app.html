@@ -4,19 +4,21 @@
     <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
   </div>
   <div class="modal-body">
-
-  <img width="100px" src="{{modal.members[modal.count].photo}}"/>
+  <img width="100px" src="{{modal.members.active[modal.count].photo}}"/>
   <p>
-    {{modal.members[modal.count].name}}
+    {{modal.members.active[modal.count].name}}
   </p>
   <p>
-    {{modal.members[modal.count].location}}
+    {{modal.members.active[modal.count].email}}
+  </p>  
+  <p>
+    {{modal.members.active[modal.count].phonenumber}}
   </p>
   <p>
-    {{modal.members[modal.count].bio}}
+    {{modal.members.active[modal.count].location}}
   </p>
   <p>
-    {{modal.members[modal.count].email}}
+    {{modal.members.active[modal.count].bio}}
   </p>
   </div>
   <div class="modal-footer">
