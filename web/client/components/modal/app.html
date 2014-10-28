@@ -5,27 +5,27 @@
   </div>
   <div class="modal-body">
   <img width="100px" src="{{modal.members.active[modal.count].photo}}"/>
-  <p>
+  <p class='name'>
     {{modal.members.active[modal.count].name}}
   </p>
-  <p>
+  <p class='email'>
     {{modal.members.active[modal.count].email}}
   </p>  
-  <p>
+  <p class='phone'>
     {{modal.members.active[modal.count].phonenumber}}
   </p>
-  <p>
+  <p class='location'>
     {{modal.members.active[modal.count].location}}
   </p>
-  <p>
+  <p class='bio'>
     {{modal.members.active[modal.count].bio}}
   </p>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-default left-button" ng-click="modal.count = modal.count > 0 ? modal.count - 1 : modal.members.length - 1" >
+    <button class="btn btn-default left-button" ng-click="modal.count = modal.count > 0 ? modal.count - 1 : modal.members.active.length - 1" >
       <span class="fa fa-arrow-left"></span>
     </button>
-    <button class="btn btn-default right-button" ng-click="modal.count = modal.count < modal.members.length - 1 ? modal.count + 1 : 0">
+    <button class="btn btn-default right-button" ng-click="modal.count = modal.count < modal.members.active.length - 1 ? modal.count + 1 : 0">
       <span class="fa fa-arrow-right"></span>
     </button>
   </div>
