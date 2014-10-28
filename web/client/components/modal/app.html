@@ -22,10 +22,10 @@
   </p>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-default left-button" ng-click="modal.count = modal.count > 0 ? modal.count - 1 : modal.members.length - 1" >
+    <button class="btn btn-default left-button" ng-click="modal.count = modal.count > 0 ? modal.count - 1 : modal.members.active.length - 1" >
       <span class="fa fa-arrow-left"></span>
     </button>
-    <button class="btn btn-default right-button" ng-click="modal.count = modal.count < modal.members.length - 1 ? modal.count + 1 : 0">
+    <button class="btn btn-default right-button" ng-click="modal.count = modal.count < modal.members.active.length - 1 ? modal.count + 1 : 0">
       <span class="fa fa-arrow-right"></span>
     </button>
   </div>
