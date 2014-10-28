@@ -108,7 +108,7 @@ angular.module('piraBoardApp')
         $scope.usersGroups = result.group;
         $scope.usersGroups.$apply();
         $scope.groupName = '';
-        $scope.numberLead = $scope.numberLead + 1
+        $scope.numberLead = $scope.numberLead + 1;
       });
     };
 
