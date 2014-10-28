@@ -12,8 +12,9 @@
   width: 60%;
 }
 
-#group #batch-upload {
+#group #batch-upload, #group #individual-upload {
   height: 34px;
+  display: inline;
 }
 
 #group .form-control, #group form {
@@ -26,4 +27,8 @@
 
 #group form {
   width: 20%;
+}
+
+#group #invite > p {
+  font-weight: bold;
 }

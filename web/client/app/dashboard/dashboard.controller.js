@@ -3,36 +3,32 @@
 angular.module('piraBoardApp')
 .controller('DashboardCtrl', function ($scope, $http, $q, Auth, Modal, User, Group) {
   $scope.user = User.get();
-  $scope.currentgroup = [];
-  $scope.mygroups = [];
-  $scope.numgroup = $scope.mygroups.length;
-    // inits some important properties
-    User.get().$promise.then( function (result) {
-      console.log('result', result)
-      $scope.numberGroups = result.group.length;
-      $scope.numberLead = 0
-      for (var key in result.isAdmin) {
-        if (result.isAdmin[key]) { 
-          $scope.numberLead++;
-        }
+  User.get().$promise.then( function (result) {
+    console.log('result', result)
+    $scope.numberGroups = result.group.length;
+    $scope.numberLead = 0
+    for (var key in result.isAdmin) {
+      if (result.isAdmin[key]) { 
+        $scope.numberLead++;
       }
-      $scope.usersGroups = result.group;
-      console.log($scope.usersGroups);
-      return result;
-    });
+    }
+    $scope.usersGroups = result.group;
+    console.log($scope.usersGroups);
+    return result;
+  });
 
     //When groups are added, they are also added here with their $scope.groups index
-    $scope.groupIndexFromName = {}
     $scope.groups = [];
     $scope.numGroups = $scope.groups.length;
     $scope.addGroupToggle = false; 
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
+    // this needs to be moved up
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.currentGroup = {
       active: [],
       invited: []
-    }; // currently selected group
+    };
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
@@ -98,7 +94,7 @@ angular.module('piraBoardApp')
     };
 
     $scope.isCurrentGroup = function (group) {
-      console.log(group, $scope.currentGroup.groupName);
+      console.log('here', group, $scope.currentGroup.groupName);
       return $scope.currentGroup.groupName === group;
     };
 

@@ -1,48 +1,38 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="row">
-    <!-- <div class="col-md-1"> -->
-      <p>
-        <img id="imageView" width="150px" ng-src="{{user.photo}}" style="border-radius: 50%"/>
-      </p>
-    <!-- </div> -->
-    <!-- <div class="col-md-3">  -->
-      <p class="greeting">
-        <h3>Hi, {{ getCurrentUser().name }} </h3>
-      </p>
-      <p>
-        You belong to {{ numberGroups }} groups and lead {{ numberLead }} groups.
-      </p>
-     <!--  <button type="button" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-download"></span> Download App
-      </button> -->
-    <!-- </div> -->
- <!--    <br>
-    <br> -->
-    <div id="info-box" ng-show="infoBoxToggle">
-      <div id="dash-location">
-        <h3>{{currentGroup.groupName}}</h3>
+<div id='dashboard'>  
+  <header class="hero-unit" id="banner">
+    <div class="row">
+      <div class="col-md-2" id="user-stats"> 
+        <img id="user-image" ng-src="{{user.photo}}"/>
+        <p class="greeting">
+          Hi, {{ getCurrentUser().name }} 
+        </p>
+        <p>
+          You belong to {{ numberGroups }} groups and lead {{ numberLead }} groups.
+        </p>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-download"></span> Download App
+        </button>
       </div>
-      <div>{{currentGroup.active.length}} members</div>
-      <br>
-      <a ng-href="/dashboard/groups/{{currentGroup.groupName}}/profile">
-        <button type="button" class="btn btn-default btn-sm" >
-          <div class="fa fa-edit"></div><a ui-sref="settings"> Edit Profile</a>
+      <div id="info-box" class="col-md-10" ng-show="infoBoxToggle">
+        <div id="dash-location">
+          {{currentGroup.groupName}}
+        </div>
+        <p>
+          {{currentGroup.active.length}} members
+        </p>
+        <button type="button" class="btn btn-default btn-sm" ui-sref="settings">
+          <div class="fa fa-edit"></div>Edit Profile
         </button>
         <button type="button" class="btn btn-default btn-sm" ng-click="initPiraBoard(currentGroup)">
          Learn Names <div class="fa fa-book"></div>
        </button>
-     </a>
-     <div id="live-update">
+       <div id="live-update" ng-hide="updateTrigger" ng-bind="updateMessage"></div>
      </div>
    </div>
- </div>
-</header>
-<br>
  </header>
-
-<div id='dashboard'>  
+{{usersGroups}}
  <div id="panel">    
   <div class="row">
     <div id="sidebar" class="col-md-2 menu">
@@ -51,7 +41,7 @@
           <span class="fa fa-plus add-group" ng-click="addGroupToggle = !addGroupToggle"></span>
         </li>
         <ul>
-          <li ng-repeat="group in usersGroups" ng-class="{'active': isCurrentGroup(group.groupName)}">
+          <li ng-repeat="group in usersGroups" ng-class="{'active': isCurrentGroup(usersGroups[$index])}">
             <a ng-href="/dashboard/groups/{{group}}" ng-click=" getGroup($index)">
               <span class="fa fa-chevron-right" ng-show="false"></span>
               <span class="fa fa-angle-right" ng-show="true"></span> 
@@ -63,7 +53,7 @@
 
       <form role="form" ng-show="addGroupToggle" ng-submit="createGroup(groupName)">
         <input type='input' id="add-group-input" class="form-control" placeholder="Create a new group" ng-model="groupName" />
-        </form>
+      </form>
     </div>
     <div id="bigpanel" class="col-md-10">
       <div ui-view>
