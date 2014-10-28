@@ -47,7 +47,7 @@
           {{member.email}}
         </td>        
         <td>
-          {{isAdmin(groupName) ? "Leader" : "User"}}
+          {{isAdmin(groupName, member) ? "Leader" : "User"}}
         </td>        
         <td ng-show="true" class="delete" ng-click="delete({member: member.id})">
           <span class="fa fa-times"></span>
