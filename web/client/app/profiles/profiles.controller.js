@@ -15,21 +15,22 @@ angular.module('piraBoardApp')
   });
 
   angular.module('piraBoardApp').filter('groupFilter', function() {
-      return function(users, filterText, nameFilter){
+      return function(users, filterText){
       	var filtered = [];
-      	var userFiltered = [];
       	// console.log(filterText);
       	var letterMatch = new RegExp(filterText, "gi");
-      	var nameMatch = new RegExp(nameFilter, "gi");
 
       	for(var i=0; i<users.length; i++){
       		var user = users[i];
       		var groups = user.group;
       
 	  			for(var j=0; j<groups.length; j++){
-	  				var group = groups[j];
-	  				// console.log(group);
-	    			if(letterMatch.test(group)){
+	  				var group = groups[j] + '';
+	  				console.log(group);
+	  				console.log(filterText);
+	  				console.log(group.indexOf(filterText));
+	    			if(!filterText || group.toLowerCase().indexOf(filterText.toLowerCase()) > -1){//letterMatch.test(group)){
+  						console.log('YAY');
 	    				if(filtered.indexOf(user) === -1){
 		    				filtered.push(user);
 		    			}
@@ -49,7 +50,7 @@ angular.module('piraBoardApp')
       		var user = users[i];
 
       		if(nameMatch.test(user.name)){
-    				if(userFiltered.indexOf(user) === -1){
+    				if(!nameFilter || user.name.toLowerCase().indexOf(nameFilter.toLowerCase()) > -1){
 	    				userFiltered.push(user);
 	    			}
       		}
