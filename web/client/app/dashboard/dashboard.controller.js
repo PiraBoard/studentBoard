@@ -10,6 +10,12 @@ angular.module('piraBoardApp')
     User.get().$promise.then( function (result) {
       console.log('result', result)
       $scope.numberGroups = result.group.length;
+      $scope.numberLead = 0
+      for (var key in result.isAdmin) {
+        if (result.isAdmin[key]) { 
+          $scope.numberLead++;
+        }
+      }
       $scope.usersGroups = result.group;
       console.log($scope.usersGroups);
       return result;
@@ -18,19 +24,23 @@ angular.module('piraBoardApp')
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groupIndexFromName = {}
     $scope.groups = [];
-    $scope.numberGroups = 0;
-    $scope.numberLead = 0;
     $scope.numGroups = $scope.groups.length;
     $scope.addGroupToggle = false; 
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.currentGroup = {}; // currently selected group
+    $scope.currentGroup = {
+      active: [],
+      invited: []
+    }; // currently selected group
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
       $scope.infoBoxToggle = true;
-      Group.getAllMembers($scope.usersGroups[index]).$promise.then(function (result) {
+      $scope.profileToggle = false;
+
+      Group.getActiveMembers($scope.usersGroups[index]).$promise.then(function (result) {
+        console.log(result)
         var master = [];
         for (var i = 0; i < result.length; i++) {
           var store = result[i];
@@ -46,10 +56,25 @@ angular.module('piraBoardApp')
           };
           master.push(member);
         }
-        master.groupName = $scope.usersGroups[index];
-        $scope.currentGroup = master;
-        return master;
-      });
+        // sets group name
+        $scope.currentGroup.groupName = $scope.usersGroups[index];
+        // sets currentGroup to contain all group information
+        $scope.currentGroup.active = master;
+      });      
+      // Group.getInvitedMembers($scope.usersGroups[index]).$promise.then(function (result) {
+      //   console.log('RESanyhting')
+      //   var master = [];
+      //   for (var i = 0; i < result.length; i++) {
+      //     var store = result[i];
+      //     var member = {
+      //       name: store.name,
+      //       email: store.email,
+      //       _id: store._id
+      //     };
+      //     master.push(member);
+      //   }
+      //   $scope.currentGroup.invited = master; // sets currentGroup to contain all group information
+      // });
     };
 
     $scope.createGroup = function (name, callback) {
@@ -63,59 +88,12 @@ angular.module('piraBoardApp')
           .success(function(data) {
             console.log(name + ' successfully created!');
             $scope.updateGroups();
-            // User.get().$promise.then( function (result) {
-            //   $scope.numberGroups = result.group.length;
-            //   $scope.usersGroups = result.group;
-            //   $scope.usersGroups.$apply();
-            //   return result;
-            // });
         });
         } else {
           $scope.groupName = '';
           alert('Group name already exists!  Choose another name.');
         }
       });
-    };
-
-    var _addGroupToLocal = function(name){
-      $scope.groupIndexFromName[name] = $scope.numGroups;
-      $scope.groups[$scope.numGroups] = 
-      {
-        groupName:name, 
-        members: [],
-        invitations: []
-      };
-      $scope.numGroups++;
-      if($scope.userGroups && $scope.usersGroups.indexOf(name) === -1){
-        $scope.usersGroups.push(name);
-      }
-      // $scope.numberLead++;
-    };
-
-    $scope.addGroupMembers = function(groupName, members){
-      var index = $scope.groupIndexFromName[groupName];
-      for(var i=0; i<members.length; i++){
-        $scope.groups[index].members.push(members[i]); 
-      }
-    };
-
-    $scope.setGroupMembers = function(groupName, members){
-      var index = $scope.groupIndexFromName[groupName];
-      console.log(index, groups);
-
-      $scope.groups[index].members = members; 
-    };
-
-    $scope.addGroupInvitations = function(groupName, members){
-      var index = $scope.groupIndexFromName[groupName];
-      for(var i=0; i<members.length; i++){
-        $scope.groups[index].invitations.push(members[i]); 
-      }
-    };
-
-    $scope.setGroupInvitations = function(groupName, members){
-      var index = $scope.groupIndexFromName[groupName];
-      $scope.groups[index].invitations = members; 
     };
 
     $scope.isCurrentGroup = function (group) {
@@ -129,9 +107,8 @@ angular.module('piraBoardApp')
         $scope.usersGroups = result.group;
         $scope.usersGroups.$apply();
         $scope.groupName = '';
-        $scope.numberLead++;
+        $scope.numberLead = $scope.numberLead + 1
         $scope.addGroupToggle = false;
-        return result;
       });
     };
 
