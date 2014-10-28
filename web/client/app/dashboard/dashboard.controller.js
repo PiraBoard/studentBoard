@@ -80,6 +80,7 @@ angular.module('piraBoardApp')
     $scope.createGroup = function (name, callback) {
       var user = User.get().$promise;
       var groups = $http.get('/api/users/userGroups');
+      $scope.addGroupToggle = false;
       $q.all([user, groups]).then(function (result) {
         var user = result[0];
         var groups = result[1].data;
@@ -108,7 +109,6 @@ angular.module('piraBoardApp')
         $scope.usersGroups.$apply();
         $scope.groupName = '';
         $scope.numberLead = $scope.numberLead + 1
-        $scope.addGroupToggle = false;
       });
     };
 
