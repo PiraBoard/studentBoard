@@ -29,10 +29,10 @@ angular.module('piraBoardApp')
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.currentGroup = {
-      active: [],
-      invited: []
-    }; // currently selected group
+    // $scope.currentGroup = {
+    //   active: [],
+    //   invited: []
+    // }; // currently selected group
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {
