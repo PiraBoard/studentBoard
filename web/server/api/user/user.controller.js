@@ -137,7 +137,7 @@ exports.show = function (req, res, next) {
 var sendInvitation = function(user){
   //generate unique url for user's initial login
   console.log('sending invitation to user id: ', user._id);
-  var uniqueUrl = 'https://piraboardheroku.herokuapp.com/invitation/' + _generateAuthString(user._id);
+  var uniqueUrl = 'https://piraboards.herokuapp.com/invitation/' + _generateAuthString(user._id);
   console.log('url: ', uniqueUrl);
 
   // setup e-mail data with unicode symbols
