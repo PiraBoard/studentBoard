@@ -1,0 +1,725 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"trans",
+				"transparency"
+			],
+			[
+				"number",
+				"numberLead"
+			],
+			[
+				"users",
+				"usersGroups"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"roman",
+				"romanNumeral"
+			],
+			[
+				"rom",
+				"romanNumeral"
+			],
+			[
+				"Mentoring",
+				"MentoringPairs"
+			],
+			[
+				"sen",
+				"seniorClass"
+			],
+			[
+				"num",
+				"numPairs"
+			],
+			[
+				"ment",
+				"mentees"
+			],
+			[
+				"granted",
+				"grantedBytes"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"message",
+				"message"
+			],
+			[
+				"req",
+				"req"
+			],
+			[
+				"thDat",
+				"thData2"
+			],
+			[
+				"phone",
+				"phoneNumber"
+			],
+			[
+				"recipei",
+				"recipientPhoneNumber"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"update",
+				"generalUpdatePattern"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"selected_items":
+		[
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"package view",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"toggle",
+				"View: Toggle Minimap"
+			],
+			[
+				"prefere",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"open",
+				"File: Open In Browser - Testing Server"
+			],
+			[
+				"key b",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"emme",
+				"Set Syntax: Emmet"
+			],
+			[
+				"emmet",
+				"Set Syntax: Emmet"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"/theme",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/main/repProfile.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/tiles/tiles.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/tiles/tiles.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/myCongress.services.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/app.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/routes.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/api/lawmaker/lawmaker.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/grunt-dom-munger/test/expected/read_order.txt",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/README.md",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/config/databasePopulator_v1.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/config/seed.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/app.css",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/app.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/chai/lib/chai/utils/addProperty.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/grunt-contrib-clean/AUTHORS",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/server/config/environment/index.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/postcss/lib/syntax-error.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/jshint-stylish/stylish.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/.travis.yml",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/landingpage/index.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/travis/after_success.sh",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/myCongress.directives.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/components/modal/modal.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/client/app/main/main.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/MyCongress/node_modules/karma/lib/reporter.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/auth/image.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/group.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/dashboard.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/group.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/modal/app.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/63b4a6c2e0d8c71626b0d93e0eaff4595f4eadc9/font-awesome.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/bcdaff3254a80d77a0c8634b05b6acf281bd5ccd/dashboard.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/dashboard.controller.spec.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/1ca57000d815e60b65283a51bdc3db3416668059/group.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/.bin/grunt-open",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/body-parser/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/STYLE-GUIDE.md",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/dashboard.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/learn/learn.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/connect-livereload/LICENSE",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/dashboard.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/config/seed.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/main/main.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/group.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/profile/profile.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/api/user/user.model.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/auth/user.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/dashboard.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/modal/modal.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/auth/group.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-contrib-sass/docs/sass-examples.md",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/75ddb26e1af4281a0a8900cee26fe2db54873b09/modal.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/batchUpload/MOCK_DATA.csv",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/composable-middleware/lib/middleware-common-object.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/ejs/Makefile",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/c34a089bacca526f6681564317f6f29e835ac2ca/dashboard.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/auth/auth.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/app.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.tmp/app/app.css.map",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/passport-google-oauth/node_modules/pkginfo/examples/all-properties.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/33d1aab8b791c5ebfaccff1e46c7205c3bf11474/learn.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/LiveEditSupport.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/auth/auth.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-contrib-clean/AUTHORS",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/auth/allUsers.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/groups.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/features-json/use-strict.json",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/api/user/user.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-usemin/tasks/usemin.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/ejs/lib/utils.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/main/main.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-svgmin/node_modules/svgo/node_modules/sax/test/duplicate-attribute.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/routes.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/learn/learn.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/modal/modal.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/bower_components/angular-scenario/jstd-scenario-adapter.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-contrib-jshint/node_modules/.bin/jshint",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/profile/profile.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/index.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/e7537d6872200daedfb79033f688660cf14fcdc4/settings.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/learn/learn.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/profile/profile.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/1ca57000d815e60b65283a51bdc3db3416668059/profile.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/protractor.conf.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-protractor-runner/tasks/protractor_runner.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/package.json",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/learn/learn.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/app.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/.sass-cache/a53283ed25c40db5a700b1bff403f262fe0ccdfc/app.scssc",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/lang/isNull.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/Gruntfile.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/profile/profile.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/group.controller.js.orig",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/learn/group.controller.js.orig",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/profiles/profiles.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/profiles/profiles.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/api/user/index.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/settings/settings.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/api/profile.service.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/settings/settings.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/.htaccess",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/ejs/examples/client.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/karma/lib/cli.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-node-inspector/node_modules/node-inspector/ChangeLog",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-autoprefixer/CHANGELOG",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/server/users/userModel.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/batchUpload/batch.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/AuditController.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/TestController.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-node-inspector/node_modules/node-inspector/front-end/DockController.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-protractor-runner/node_modules/protractor/docs/control-flow.md",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/mongoose/contRun.sh",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt/CONTRIBUTING.md",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/node_modules/grunt-build-control/test/expected/custom_options",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/groups.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/settings/settings.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/groups.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/group-admin/group-admin.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/groups.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group/group.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/navbar/navbar.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/components/navbar/navbar.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/group-admin/group-admin.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group-view/group-view.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group-view/group-view.html",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group-view/group-view.controller.js",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/groups/group-view/group-view.scss",
+		"/Users/Michael/Google Drive/GitHub/HackReactor/projects/studentBoard/web/client/app/dashboard/partials/group-admin/group-admin.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"<open files>,/Users/Michael/Google Drive/GitHub/HackReactor/sprints/angular/2014-09-shortly-angular/client/app,/Users/Michael/Google Drive/GitHub/HackReactor/sprints/angular/2014-09-shortly-angular",
+			"<open files>,/Users/Michael/Google Drive/GitHub/HackReactor/sprints/angular/2014-09-shortly-angular/client/app",
+			"<open files>",
+			"<open files>,/Users/Michael/Google Drive/GitHub/uber-dashboard/main",
+			"<open files>",
+			"/Users/Michael/Google Drive/GitHub/uber-dashboard",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"rencydata.c",
+			"gregates/indi",
+			"greeting",
+			"#banner",
+			"imageView",
+			"#banner {",
+			"style",
+			"addimage",
+			"addimg",
+			"convertimg",
+			".user",
+			"leader",
+			"User.update",
+			"isleader",
+			"isLeader",
+			"isAdmin",
+			"profiletoggl",
+			"isAdmin",
+			"invitations",
+			"$promise",
+			"= ",
+			"repeat",
+			"currentgroup",
+			"groupindexfromname",
+			"result",
+			"test",
+			"user",
+			"setGroupMember",
+			"update",
+			".members",
+			"save",
+			";",
+			"=",
+			"groups",
+			"creategroup",
+			".groups",
+			"data from server",
+			"currentgroup",
+			"setgroup",
+			"setgroupmember",
+			"+    ",
+			"bio",
+			"col-",
+			"i",
+			"text",
+			"deleteModal",
+			"location",
+			"name",
+			"value=\"{{}}\"",
+			"name",
+			";\n",
+			".user",
+			"findbyid",
+			"');\n",
+			"addFriend",
+			"};\n",
+			"exampleInputFile",
+			"exampleInputPassword1",
+			"profiletog",
+			"click",
+			".option",
+			"env:prod",
+			"env",
+			"deploy",
+			"ng-href",
+			"ctrl",
+			"groupClicked",
+			"groupclicked",
+			"ng-show",
+			"friends",
+			"scope=\"col\"",
+			"scope=\"col\" ",
+			"5px",
+			"home",
+			".hi",
+			"lg",
+			"awesomeThings",
+			"Group",
+			"#dashboard #info-box {\n  font-size: 3em;\n}",
+			"user",
+			"\"></",
+			"}}\n",
+			"join",
+			";\n",
+			"Auth.getCurrentUser",
+			"});",
+			"reload",
+			"live",
+			"livereload",
+			"MainCtrl",
+			"',",
+			"bower_",
+			"sass",
+			"client",
+			"bower",
+			"sass",
+			"MainCtrl",
+			"background",
+			"theme",
+			">\n",
+			"fa",
+			"fa-",
+			"font-awesome",
+			"awesome",
+			"nodemon",
+			"watch",
+			"'watch'",
+			"waiting...",
+			"sass:",
+			"sass",
+			"azure",
+			"text/html",
+			"$scope",
+			"recipientPhoneNumberOrEmail",
+			"src",
+			"// SET THIS UP",
+			"dragimage",
+			"({\n",
+			"yoda",
+			"errorHandler1",
+			"loadimag",
+			"initstage",
+			"function",
+			"darthVaderGroup",
+			"$files",
+			"name",
+			"update",
+			"target"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"});",
+			"response",
+			"request",
+			"coordinates"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "bower.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"routes",
+				"server/routes.js"
+			],
+			[
+				"routes.js",
+				"server/routes.js"
+			],
+			[
+				"app.",
+				"client/app/app.js"
+			],
+			[
+				"app.js",
+				"server/app.js"
+			],
+			[
+				"seed.js",
+				"server/config/seed.js"
+			],
+			[
+				"repro",
+				"client/app/main/repProfile.html"
+			],
+			[
+				"app.html",
+				"web/client/components/modal/app.html"
+			],
+			[
+				"dashboard.con",
+				"web/client/app/dashboard/dashboard.controller.js"
+			],
+			[
+				"group.html",
+				"web/client/app/dashboard/partials/groups/group/group.html"
+			],
+			[
+				"learn.scs",
+				"web/client/app/dashboard/partials/groups/group/learn/learn.scss"
+			],
+			[
+				"dashboard",
+				"web/client/app/dashboard/dashboard.html"
+			],
+			[
+				"seed",
+				"web/server/config/seed.js"
+			],
+			[
+				"modal",
+				"web/client/components/modal/modal.html"
+			],
+			[
+				"seed.",
+				"web/server/config/seed.js"
+			],
+			[
+				"learn.scss",
+				"web/client/app/dashboard/partials/groups/group/learn/learn.scss"
+			],
+			[
+				"auth.ser",
+				"web/client/components/auth/auth.service.js"
+			],
+			[
+				"user.con",
+				"web/server/api/user/user.controller.js"
+			],
+			[
+				"user.controll",
+				"web/server/api/user/user.controller.js"
+			],
+			[
+				"dashb",
+				"web/client/app/dashboard/dashboard.controller.spec.js"
+			],
+			[
+				"js",
+				"client/bower_components/angular-scenario/jstd-scenario-adapter.js"
+			],
+			[
+				"dashboard.co",
+				"client/app/dashboard/dashboard.controller.js"
+			],
+			[
+				"profile.con",
+				"client/app/dashboard/partials/groups/group/profile/profile.controller.js"
+			],
+			[
+				"app.scss",
+				"client/app/app.scss"
+			],
+			[
+				"index.",
+				"client/index.html"
+			],
+			[
+				"learn.",
+				"client/app/dashboard/partials/groups/group/learn/learn.scss"
+			],
+			[
+				"user.model",
+				"server/api/user/user.model.js"
+			],
+			[
+				"user.se",
+				"client/components/auth/user.service.js"
+			],
+			[
+				"dashhboard.con",
+				"client/app/dashboard/dashboard.controller.js"
+			],
+			[
+				"dashboard.c",
+				"client/app/dashboard/dashboard.controller.js"
+			],
+			[
+				"user.ser",
+				"client/components/auth/user.service.js"
+			],
+			[
+				"group.c",
+				"client/app/dashboard/partials/groups/group/group.controller.js"
+			],
+			[
+				"client/inde",
+				"client/index.html"
+			],
+			[
+				"controller.",
+				"client/app/dashboard/dashboard.controller.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 212.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

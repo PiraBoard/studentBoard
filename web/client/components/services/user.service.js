@@ -9,29 +9,38 @@ angular.module('piraBoardApp')
     changePassword: {
       method: 'PUT',
       params: {
-        controller:'password'
+        controller: 'password'
       }
     },
-    //used for getting user information
     get: {
       method: 'GET',
       params: {
         id:'me'
       }
     },
-    // used for updating user profile
+    query: {
+      method: 'GET',
+      isArray: true
+    },
     update: {
       method: 'PUT',
       params: {
         id: 'me',
-        controller:'update'
+        controller: 'update'
       }
     },
-    sendInvite: {
+    sendInvitation: {
       method: 'PUT',
       params: {
-        // id: '54481e9e30ec68af54d9f680',//testing only, remove soon
-        controller:'invite'
+        controller: 'invite'
+      }
+    },
+    consumeInvitation: {
+      method: 'GET',
+      params: {
+        // {id: new_user} must be passed into function call
+        //this name should be simplified
+        controller: 'loginWithInvitation'
       }
     }
   });

@@ -22,7 +22,7 @@ angular.module('piraBoardApp')
       //Server will send user an invitation email
       console.log('USER: ', user._id);
 
-      User.sendInvite({id: user._id},{},
+      User.sendInvitation({id: user._id},{},
         function(user) {
           console.log('sent?');
           return cb(user);

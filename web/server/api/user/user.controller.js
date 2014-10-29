@@ -160,7 +160,7 @@ var sendInvitation = function(user){
 };
 
 /* DEPRECATED */
-// exports.sendInvite = function (req, res, next) {
+// exports.sendInvitation = function (req, res, next) {
 //   console.log('inside send invite Express.js');
 //   var userId = req.params.id;
 //   sendInvitation(userId);

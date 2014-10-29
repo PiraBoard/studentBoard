@@ -2,9 +2,17 @@
 
 angular.module('piraBoardApp')
 .controller('DashboardCtrl', function ($scope, $http, $q, Auth, Modal, User, Group) {
-  $scope.user = User.get();
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.currentGroup = {
+      active: [],
+      invited: []
+    };
+    $scope.addGroupToggle = false; 
+    $scope.profileToggle = false;
+    $scope.infoBoxToggle = false;
   User.get().$promise.then( function (result) {
     console.log('result', result)
+    $scope.user = result;
     $scope.numberGroups = result.group.length;
     $scope.numberLead = 0
     for (var key in result.isAdmin) {
@@ -20,15 +28,7 @@ angular.module('piraBoardApp')
     //When groups are added, they are also added here with their $scope.groups index
     $scope.groups = [];
     $scope.numGroups = $scope.groups.length;
-    $scope.addGroupToggle = false; 
-    $scope.profileToggle = false;
-    $scope.infoBoxToggle = false;
     // this needs to be moved up
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.currentGroup = {
-      active: [],
-      invited: []
-    };
 
     // gets the current group the user is clicked on
     $scope.getGroup = function (index) {

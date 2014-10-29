@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .controller('SettingsCtrl', function ($scope, $http, $location, $window, $timeout,  Auth, User, AllUsers, invitationFactory) {
+  .controller('SettingsCtrl', function ($scope, $http, $location, $window, $timeout,  Auth, User, Invitation) {
     $scope.errors = {};
     $scope.savedSuccessfully = false;
     $scope.user = User.get();
-    $scope.oldPassword = invitationFactory.password;
-    // $scope.allUsers = AllUsers.query();
+    $scope.oldPassword = Invitation.password;
 
     $("#imgInput").change(function(){
       console.log('file loaded for read');
@@ -37,7 +36,7 @@ angular.module('piraBoardApp')
           $scope.user.newPassword = null;
           $scope.oldPassword = null;
 
-          //if this is the users first time in the app (invitationFactory.password is not null)
+          //if this is the users first time in the app (Invitation.password is not null)
           //we could forward them to an edit profile page after changing their password
           //Maybe Later
         })
@@ -51,31 +50,13 @@ angular.module('piraBoardApp')
 
     $scope.save = function(form) {
       $scope.submitted = true;
-      console.log('save');
-      $scope.savedSuccessfully = true;
-
-      $http.put('/api/users/'+$scope.user._id+'/update', {profile:$scope.user}).
-        success(function(data) {
-          console.log($scope.user.name);
-          console.log('hopefully updated the database as expected')
-        }).
-        error(function(err) {
-          console.log('oh god, what happened this time');
-        }.bind(this));
-
-      //Should save user changes,
-      //not create a new user *** FIX *** once database is enabled
-    //   if(form.$valid) {
-    //     console.log('valid');
-    //     $scope.savedSuccessfully = true;
-
-    //     //Tells the user that the data was saved successfully
-    //     //Removes the message after a few seconds
-
-    //   }
-      $timeout(function(){
+      
+      User.update({profile: $scope.user}).then(function () {
+        $scope.savedSuccessfully = true;
+      });
+      $timeout(function() {
         $scope.savedSuccessfully=false;
-      }, 3000);
+      }, 1500);
     };
   });
 

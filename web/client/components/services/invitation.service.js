@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piraBoardApp')
-  .factory('invitationFactory', function(){
+  .factory('Invitation', function(){
     return {
       password: null
     }
