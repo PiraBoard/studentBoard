@@ -29,9 +29,7 @@ angular.module('piraBoardApp', [
 
       // Intercept 401s and redirect you to login
       responseError: function(response) {
-        console.log('redirected resp: ', response);
         if(response.status === 401) {
-          console.log('work around me: ', response);
 
           // console.log(response.config.url.substring(0, 22));
           if(response.config.url.substring(0, 22) !== "/invitation/"){

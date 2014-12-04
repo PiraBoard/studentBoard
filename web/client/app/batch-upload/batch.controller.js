@@ -3,9 +3,7 @@
 angular.module('piraBoardApp')
 
 .controller('BatchCtrl', [ '$scope', '$http', function($scope, $http) {
-  console.log('initialized', $scope);
   $scope.onFileSelect = function($files) {
-    console.log('selected files', $files);
     var currentGroup = $scope.groupName;
 
     console.log(currentGroup);
@@ -20,7 +18,6 @@ angular.module('piraBoardApp')
         header: true,
         dynamicTyping: true,
         complete: function(results) {
-          console.log('parsed: ', results);
 
           //stringify the results for transport
           for(var k=0; k<results.data.length; k++){
@@ -31,10 +28,8 @@ angular.module('piraBoardApp')
 
           //So, node is not happy with how large our batch uploads are
           //So, we are dividing them into smaller chunks
-          console.log('parsed results: ', results.data.length);
           for(var j=0; j<results.data.length; j+=100){
             var users = results.data.slice(j, j+100);
-            console.log('num users this req: ', users.length);
             
             //POST TO api/users/createManyUsers
             //with array of user data objects as parameter
@@ -42,7 +37,6 @@ angular.module('piraBoardApp')
               users: users
             }).
             success(function(data) {
-              console.log('server is adding new users');
               // $scope.getUsersOfGroup();
               $scope.addGroupMembers($scope.groupName, data);
             }).

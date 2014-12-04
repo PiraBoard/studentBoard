@@ -15,8 +15,8 @@ angular.module('piraBoardApp')
       var endpoint = ('/api/users/getInvitedUsersOfGroup/:name', {name: ofGroup});
       return endpoint.query();
     },
-    create: function (group) {
-      return $resource('/api/users/userGroup/:name');
+    create: function (ofGroup) {
+      return $resource('/api/users/userGroup/:name', {name: ofGroup});
     },
   }
 })

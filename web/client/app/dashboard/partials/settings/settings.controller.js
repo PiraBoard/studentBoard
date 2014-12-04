@@ -8,18 +8,15 @@ angular.module('piraBoardApp')
     $scope.oldPassword = Invitation.password;
 
     $("#imgInput").change(function(){
-      console.log('file loaded for read');
         readURL(this);
     });
 
     function readURL(input) {
-      console.log('reading file');
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         
         reader.onload = function (e) {
           $('#imageView').attr('src', e.target.result);
-          console.log(e.target.result);
           $scope.user.photo = e.target.result;
         }
         

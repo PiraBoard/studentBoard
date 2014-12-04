@@ -32,7 +32,6 @@ angular.module('piraBoardApp')
       }).
       error(function(err) {
         console.log('Error creating user:', err);
-        console.log(err);
         alert(err);
       }.bind(this));
     };

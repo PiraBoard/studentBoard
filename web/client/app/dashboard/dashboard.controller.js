@@ -11,7 +11,6 @@ angular.module('piraBoardApp')
     $scope.profileToggle = false;
     $scope.infoBoxToggle = false;
   User.get().$promise.then( function (result) {
-    console.log('result', result)
     $scope.user = result;
     $scope.numberGroups = result.group.length;
     $scope.numberLead = 0
@@ -21,7 +20,6 @@ angular.module('piraBoardApp')
       }
     }
     $scope.usersGroups = result.group;
-    console.log($scope.usersGroups);
     return result;
   });
 
@@ -36,7 +34,6 @@ angular.module('piraBoardApp')
       $scope.profileToggle = false;
 
       Group.getActiveMembers($scope.usersGroups[index]).$promise.then(function (result) {
-        console.log(result)
         var master = [];
         for (var i = 0; i < result.length; i++) {
           var store = result[i];
@@ -83,9 +80,11 @@ angular.module('piraBoardApp')
         if (groups.indexOf(name) < 0) {
           $http.post('/api/users/userGroup/' + name, {user: user})
           .success(function(data) {
-            console.log(name + ' successfully created!');
             $scope.updateGroups();
-        });
+          })
+          .error(function(){
+            console.log('Post to /api/users failed!')
+          });
         } else {
           $scope.groupName = '';
           alert('Group name already exists!  Choose another name.');
@@ -94,7 +93,6 @@ angular.module('piraBoardApp')
     };
 
     $scope.isCurrentGroup = function (group) {
-      console.log('here', group, $scope.currentGroup.groupName);
       return $scope.currentGroup.groupName === group;
     };
 
@@ -102,14 +100,12 @@ angular.module('piraBoardApp')
       User.get().$promise.then( function (result) {
         $scope.numberGroups = result.group.length;
         $scope.usersGroups = result.group;
-        $scope.usersGroups.$apply();
         $scope.groupName = '';
         $scope.numberLead = $scope.numberLead + 1;
       });
     };
 
     $scope.getCurrentGroup = function (group) {
-      console.log(group);
       $http.get('/api/users/getUsersOfGroup/' + group)
       .success(function (data) {
         $scope.currentgroup = data;

@@ -147,8 +147,11 @@ angular.module('piraBoardApp')
         if (user === undefined) {
           user = currentUser;
         }
-        console.log(currentUser.isAdmin[group])
-        return user.role === 'admin' || user.isAdmin[group];
+        if (user.role === 'admin') {
+          return true;
+        } else if (user.isAdmin) {
+          return user.isAdmin[group];
+        }
       },
 
       /**
