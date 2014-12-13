@@ -1,4 +1,4 @@
-[Piraboard](https://piraboards.herokuapp.com/ "PiraBoard")
+# [Piraboard](https://piraboards.herokuapp.com/ "PiraBoard")
 
 An open-source name learning tool
 
