@@ -1,7 +1,6 @@
-# PiraBoard
+[Piraboard](https://piraboards.herokuapp.com/ "PiraBoard")
 
-An open-source team learning tool
-
+An open-source name learning tool
 
 ## Team
 
