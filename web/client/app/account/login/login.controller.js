@@ -15,7 +15,7 @@ angular.module('piraBoardApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/dashboard');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
@@ -27,3 +27,4 @@ angular.module('piraBoardApp')
       $window.location.href = '/auth/' + provider;
     };
   });
+

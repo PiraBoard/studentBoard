@@ -22,12 +22,10 @@ angular.module('piraBoardApp')
       //Server will send user an invitation email
       console.log('USER: ', user._id);
 
-      User.sendInvite({id: user._id},{},
+      User.sendInvitation({id: user._id},{},
         function(user) {
-          console.log('sent?');
           return cb(user);
         }, function(err) {
-          console.log('not sent: ', err);
           return cb(err);
         }).$promise;
 
@@ -47,7 +45,6 @@ angular.module('piraBoardApp')
       // }.bind(this));
 
       //Should be greyed out for users whom have been sent an invite email already
-      console.log('email');
     };
 
     $scope.emailAllNew = function(){
